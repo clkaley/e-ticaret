@@ -1,10 +1,18 @@
+import {Container} from 'react-bootstrap'
+import Header from './component/Header'
+import Footer from './component/Footer'
 
-
-function App() {
+const  App = ()=> {
   return (
-    <div className="App">
-      <h1>siteme hoşgeldiniz.</h1>
-    </div>
+    <>
+    <Header />
+      <main className='py-2'> //**navbar ile arasına boşluk */
+        <Container>
+            <h1>hello</h1>
+        </Container>
+      </main>
+    <Footer />
+   </>
   );
 }
 
