@@ -12,7 +12,6 @@ const header = () => {
                     <Nav className="ms-auto">
                         <Nav.Link href="/home"><i className='fas fa-shopping-cart fa-2x'></i>Shopping Cart</Nav.Link>
                         <Nav.Link href="/link"><i className="fas fa-child fa-2x"></i>Sign In</Nav.Link>
-                    
                     </Nav>
                     </Navbar.Collapse>
                 </Container>
