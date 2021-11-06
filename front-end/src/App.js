@@ -7,7 +7,7 @@ import MainDisplay from './display/mainDisplay'
 const  App = ()=> {
   return (
     <>
-    <Header />
+    <Header color='red'/>
       <main className='py-2'> 
         <Container>
             <MainDisplay />
@@ -15,7 +15,7 @@ const  App = ()=> {
            
         </Container>
       </main>
-    <Footer />
+    <Footer color='red'/>
    </>
   );
 }
