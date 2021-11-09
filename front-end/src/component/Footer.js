@@ -1,13 +1,13 @@
 import React from 'react'
 import {Container, Row, Col} from 'react-bootstrap'
 
-const footer = ({color,size}) => {
+const footer = ({color}) => {
     return (
         <footer>
             <Container>
                 <Row>
                     <Col  className="text-center py-3 " >
-                        Copyright &copy; <span style={{color,size}}> LΞICΛ </span>
+                        Copyright &copy; <span style={{color}}> LΞICΛ </span>
                     </Col>
                 </Row>
             </Container>

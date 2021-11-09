@@ -1,8 +1,8 @@
 const products = [
 
       /*
-       _id: '1',
-    name: 'Airpods Wireless Bluetooth Headphones',
+    id: '1',
+    name: ' Headphones',
     image: '/images/airpods.jpg',
     description:
       'Bluetooth technology lets you connect it with compatible devices wirelessly High-quality AAC audio offers immersive listening experience Built-in microphone allows you to take calls while working',
@@ -15,142 +15,51 @@ const products = [
     */ 
     {
         id:'1',
-        name: 'Analogue Camera',
-        image:'/image-products/analog.jpg',
+        name: 'Instax Mini 9 ',
+        image:'/image-products/instax.jpg',
         description:'lorem ipsum dolor',
-        brand:'Kiev',
+        brand:'FujiFilm',
         category:'Electronics',
-        price:'$80',
-        total_comments:15,
+        price:'$60',
+        total_comments:2,
         rating:5,
         
     },
     {
-        id:'11',
-        name: 'Analogue Camera',
-        image:'/image-products/olympus.jpg',
+        id:'2',
+        name: 'Instax Mini 10',
+        image:'/image-products/instax-y.jpg',
         description:'lorem ipsum dolor',
-        brand:'Kiev',
+        brand:'FujiFilm',
         category:'Electronics',
-        price:'80$',
-        total_comments:15,
+        price:'$80',
+        total_comments:1,
         rating: 4,
     },
     {
-        id:'12',
-        name: 'Analogue Camera',
-        image:'/image-products/pentax.jpg',
-        description:'lorem ipsum dolor',
-        brand:'Kiev',
-        category:'Electronics',
-        price:'80$',
-        total_comments:15,
-        rating: 2.5,
-    },
-   /* {
-        id:'2',
-        name: 'Analogue Camera',
-        image:'/image-products/kiev.jpg',
-        description:'lorem ipsum dolor',
-        brand:'Kiev',
-        category:'Electronics',
-        price:'$80',
-        total_comments:15,
-        rating: 1,
-    },
-    {
         id:'3',
-        name: 'Analogue Camera',
-        image:'/image-products/kodak.jpg',
-        description:'lorem ipsum dolor',
-        brand:'Kiev',
-        category:'Electronics',
-        price:'$80',
-        total_comments:15,
-        rating: 3,
-    },*/
-
-
-
-
-   /* {
-        id:'2',
-        name: 'Instax Camera',
-        image:'/image-products/instax-b.jpg',
-        description:'lorem ipsum dolor',
-        brand:'Instax',
-        category:'Electronics',
-        price:'70$',
-    },*/
-   /* {
-        id:'3',
-        name: 'Analogue Camera',
-        image:'/image-products/instax-g.jpg',
-        description:'lorem ipsum dolor',
-        brand:'Kiev',
-        category:'Electronics',
-        price:'80$',
-    },*/
-    /*{
-        id:'4',
-        name: 'Analogue Camera',
+        name: 'Instax Mini 11',
         image:'/image-products/instax-w.jpg',
         description:'lorem ipsum dolor',
-        brand:'Kiev',
+        brand:'FujiFilm',
         category:'Electronics',
-        price:'80$',
-    },
-    {
-        id:'5',
-        name: 'Analogue Camera',
-        image:'/image-products/instax-y.jpg',
-        description:'lorem ipsum dolor',
-        brand:'Kiev',
-        category:'Electronics',
-        price:'80$',
-    },
-    {
-        id:'6',
-        name: 'Analogue Camera',
-        image:'/image-products/instax.jpg',
-        description:'lorem ipsum dolor',
-        brand:'Kiev',
-        category:'Electronics',
-        price:'80$',
-    },*/
-    {
-        id:'7',
-        name: 'Analogue Camera',
-        image:'/image-products/jupiter.jpg',
-        description:'lorem ipsum dolor',
-        brand:'Kiev',
-        category:'Electronics',
-        price:'80$',
-        total_comments:15,
+        price:'$95',
+        total_comments:5,
         rating: 2.5,
     },
-   
-    /*{
-        id:'9',
-        name: 'Analogue Camera',
-        image:'/image-products/lens.jpg',
-        description:'lorem ipsum dolor',
-        brand:'Kiev',
-        category:'Electronics',
-        price:'80$',
-    },*/
-    /*{
-        id:'10',
-        name: 'Analogue Camera',
-        image:'/image-products/lens2.jpg',
-        description:'lorem ipsum dolor',
-        brand:'Kiev',
-        category:'Electronics',
-        price:'80$',
-    },*/
-  
 
-  
+    {
+        id:'4',
+        name: 'Instax Mini 70',
+        image:'/image-products/instax-h.jpg',
+        description:'lorem ipsum dolor',
+        brand:'FujiFilm',
+        category:'Electronics',
+        price:'120$',
+        total_comments:12,
+        rating: 3.5,
+    },
+   
 
 
 ]

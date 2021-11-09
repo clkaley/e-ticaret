@@ -1,6 +1,5 @@
 import React from 'react'
 import { Card, CardImg } from 'react-bootstrap'
-import products from '../products'
 import Rating from './Rating'
 
 
