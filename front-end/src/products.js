@@ -28,7 +28,7 @@ const products = [
     
     {
         id:'2',
-        name: 'Instax Mini 10',
+        name: 'Instax Mini 8',
         image:'/image-products/instax-y.jpg',
         description:'lorem ipsum dolor',
         brand:'FujiFilm',
