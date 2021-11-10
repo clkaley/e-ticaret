@@ -1,6 +1,7 @@
 import React from 'react'
 import {Container, Row, Col} from 'react-bootstrap'
 
+
 const footer = ({color}) => {
     return (
         <footer>
@@ -14,5 +15,11 @@ const footer = ({color}) => {
         </footer>
     )
 }
+
+footer.defaultProps={
+    color:'red'
+}
+
+
 
 export default footer

@@ -12,14 +12,16 @@ const Product = ({product}) => {
 
             <Card.Body>
                 
-                    <Card.Title className='my-1'><>{product.name}</></Card.Title>
+                    <Card.Title className='my-1'>
+                        <h4>{product.name}</h4>
+                    </Card.Title>
                 
                     <Card.Text as='div' className='py-2'>
                         {/* <div className='my-4'>
                             {product.rating} from {product.total_comments} rewiews
                         </div> */}
-                        <Rating className='py-2' value={product.rating} text={`${product.total_comments} comments`} 
-                           color='red'
+                        <Rating className='py-2' value={product.rating } text={`  ${product.total_comments}  comments`} 
+                           
                         />
                      
                     </Card.Text>

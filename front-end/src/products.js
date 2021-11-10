@@ -16,7 +16,7 @@ const products = [
     {
         id:'1',
         name: 'Instax Mini 9 ',
-        image:'/image-products/instax.jpg',
+        image:'/image-products/instax.png',
         description:'lorem ipsum dolor',
         brand:'FujiFilm',
         category:'Electronics',
@@ -25,6 +25,7 @@ const products = [
         rating:5,
         
     },
+    
     {
         id:'2',
         name: 'Instax Mini 10',
@@ -36,6 +37,7 @@ const products = [
         total_comments:1,
         rating: 4,
     },
+
     {
         id:'3',
         name: 'Instax Mini 11',
@@ -55,12 +57,11 @@ const products = [
         description:'lorem ipsum dolor',
         brand:'FujiFilm',
         category:'Electronics',
-        price:'120$',
+        price:'$120',
         total_comments:12,
         rating: 3.5,
     },
-   
-
-
 ]
+
+
 export default products;

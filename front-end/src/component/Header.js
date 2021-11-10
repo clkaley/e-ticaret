@@ -20,4 +20,10 @@ const header = ({color}) => {
     )
 }
 
+
+header.defaultProps={
+    color:'red'
+}
+
+
 export default header

@@ -1,6 +1,11 @@
 main{
-  min-height: 75vh; /*70vh da olabilir*/
+  min-height: 80vh; /*70vh da olabilir*/
   color: black;
+}
+
+
+.rating span{
+  margin: 0.1rem;
 }
 
 
