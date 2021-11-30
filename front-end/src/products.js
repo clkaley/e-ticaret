@@ -13,9 +13,9 @@ const products = [
     total_comments: 12,
     */ 
     {
-        id:'1',
+        _id:'1',
         name: 'Instax Mini 9 ',
-        image:'/image-products/instax.png',
+        image:'/image-products/pexels-timothy-paule-ii-1433191',
         description:'lorem ipsum dolor',
         brand:'FujiFilm',
         category:'Electronics',
@@ -26,7 +26,7 @@ const products = [
     },
     
     {
-        id:'2',
+        _id:'2',
         name: 'Instax Mini 8',
         image:'/image-products/instax-y.jpg',
         description:'lorem ipsum dolor',
@@ -38,7 +38,7 @@ const products = [
     },
 
     {
-        id:'3',
+        _id:'3',
         name: 'Instax Mini 11',
         image:'/image-products/instax-w.jpg',
         description:'lorem ipsum dolor',
@@ -50,7 +50,7 @@ const products = [
     },
 
     {
-        id:'4',
+        _id:'4',
         name: 'Instax Mini 70',
         image:'/image-products/instax-h.jpg',
         description:'lorem ipsum dolor',
