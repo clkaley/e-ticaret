@@ -10,28 +10,29 @@ function ProductDisplay() {
  
   return <div>
        
-        <Row className='pt-5'>
-          </Row>
-        <Row className='mr-2'>
-          
+       <Col className='my-5 mx-auto'>
+            
+       </Col>
+        <Row className='mr-2 ms-auto justify-content-md-center '>
             <Col  md={5} >
               <Image  src={product.image} alt={product.name} fluid />
             </Col>
          
-         <Col sm={1}></Col>
+         <Col sm={1}>
+         </Col>
             <Col md={4}  className=' mx-5'>
               <ListGroup variant="flush">
-                  <ListGroupItem>
+                  <ListGroupItem className='text-center'>
                     <h2>{product.name}</h2>
                   </ListGroupItem>
               </ListGroup>
-              <ListGroupItem>
-                <Rating  value={product.rating} text={`${product.total_comments} comments`} />
+              <ListGroupItem  >
+                <Rating   value={product.rating} text={`${product.total_comments} comments`} />
               </ListGroupItem>
-             
+           
 
               <ListGroupItem>
-                 Description:{product.description}
+                 Description: {product.description}
               </ListGroupItem>
               <Card>
                   <ListGroup>
@@ -64,13 +65,12 @@ function ProductDisplay() {
                       Add To Shopping Cart
                     </Button>
                   </ListGroupItem>
-
+                  
                 </Card>
-              </Col>
-              <Col md={3}>
-               
              
-            </Col>
+              </Col>
+              
+            
         </Row>
     </div>
 }
@@ -84,7 +84,7 @@ export default ProductDisplay
 
 
 /**
-<Link className='btn btn-primary my-3 ms-auto"' to='./'>
+<Link className='btn btn-primary my-3 ms-auto"' to='/'>
           Go Back
         </Link>
  */
