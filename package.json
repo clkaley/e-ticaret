@@ -1,0 +1,22 @@
+{
+  "name": "e-ticaret",
+  "version": "1.0.0",
+  "description": "e-ticaret shopping app",
+  "main": "server.js",
+  "scripts": {
+    "start": "node back-end/server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/clkaley/e-ticaret.git"
+  },
+  "author": "Aleyna Celik",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/clkaley/e-ticaret/issues"
+  },
+  "homepage": "https://github.com/clkaley/e-ticaret#readme",
+  "dependencies": {
+    "express": "^4.17.2"
+  }
+}

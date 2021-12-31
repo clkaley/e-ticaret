@@ -9,7 +9,7 @@ const header = ({color}) => {
             <Navbar  bg="light" variant="light" expand="lg" collapseOnSelect>
                 <Container>
                 <Nav.Link href="/">
-                            <Navbar.Brand  style={{color}}>LΞICΛ</Navbar.Brand>
+                            <Navbar.Brand  style={{color}}>PRΞTIUᗰ </Navbar.Brand>
                             </Nav.Link>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
