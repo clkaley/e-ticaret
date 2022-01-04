@@ -21,7 +21,7 @@ function ProductDisplay({match}) {
         setProducts(data)
     }
     fetchProducts()
-}, [])
+}, [match])
 
  
   return <div>
