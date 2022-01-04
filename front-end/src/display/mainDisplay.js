@@ -1,10 +1,23 @@
-import React from 'react'
+import axios from 'axios'
+import React, {useState,useEffect} from 'react'
 import {Col, Container, Row} from 'react-bootstrap'
-import products from '../products'
+//import products from '../products'
 import Product from '../component/Product'
 
 
-const mainDisplay = () => {
+
+const MainDisplay = () => {
+    const [products,setProducts] =useState([])
+
+    useEffect(()=>{
+        const fetchProducts= async () => {
+            const {data}= await axios.get('/api/products')
+
+            setProducts(data)
+        }
+        fetchProducts()
+    }, [])
+
     return (
         <Container>
            
@@ -19,4 +32,4 @@ const mainDisplay = () => {
     )
 }
 
-export default mainDisplay
+export default MainDisplay

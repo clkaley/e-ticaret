@@ -37,15 +37,18 @@ const Rating = ({value, text, color}) => {
 }
 
 
-Rating.defaultProps={
-    color:'red'
-}
 
+Rating.defaultProps = {
+    value: '',
+    numReviews: '',
+    color:'red' 
+  };
+  
+  //{numReviews && <Rating value='blah' numReview={blah} />}
+/*
 Rating.propTypes = {
     value: PropTypes.number.isRequired,
     text: PropTypes.string.isRequired,
     color:PropTypes.string,
-}
-
-
+}*/
 export default Rating

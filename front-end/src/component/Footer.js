@@ -8,7 +8,7 @@ const footer = ({color}) => {
             <Container>
                 <Row>
                     <Col  className="text-center py-3 " >
-                        Copyright &copy; <span style={{color}}> PRΞTIUᗰ </span>
+                        Copyright &copy; <span style={{color}}> PRΞTIUM </span>
                     </Col>
                 </Row>
             </Container>
