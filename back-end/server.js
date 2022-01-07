@@ -7,6 +7,7 @@ import dotenv from 'dotenv'
 import products from './data/products.js'
 //const products=require('./data/products')
 
+import colors from 'colors'
 
 //database import edildi
 import connectDB from "./config/database.js"
@@ -36,4 +37,4 @@ app.get('/api/products/:id',(req,res) => {
 
 const PORT =process.env.PORT || 5000
 
-app.listen(PORT,console.log(`Server Running in ${process.env.NODE_ENV} Port ${PORT}`))
+app.listen(PORT,console.log(`Server Running in ${process.env.NODE_ENV} Port ${PORT}`.rainbow))
