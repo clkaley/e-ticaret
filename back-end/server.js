@@ -7,8 +7,14 @@ import dotenv from 'dotenv'
 import products from './data/products.js'
 //const products=require('./data/products')
 
+
+//database import edildi
+import connectDB from "./config/database.js"
+
 dotenv.config()
 
+
+connectDB()
 
 const app=express()
 
