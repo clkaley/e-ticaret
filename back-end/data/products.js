@@ -13,7 +13,7 @@ const products = [
     total_comments: 12,
     */ 
     {
-        _id:'1',
+       // _id:'1',
         name: 'Instax Mini 9 ',
         image:'/image-products/instax.png',
         description:'The high-performance flash automatically calculates surrounding brightness and adjusts shutter speed accordingly no need for any special settings.',
@@ -27,7 +27,7 @@ const products = [
     },
     
     {
-        _id:'2',
+      //  _id:'2',
         name: 'Instax Mini 8',
         image:'/image-products/instax-y.jpg',
         description:'The light of the flash does not reach the background, resulting in a dark-looking photo.',
@@ -40,7 +40,7 @@ const products = [
     },
 
     {
-        _id:'3',
+      //  _id:'3',
         name: 'Instax Mini 11',
         image:'/image-products/instax-w.jpg',
         description:'mini 11 captures bright backgrounds and bright subjects even in dark scenes.',
@@ -53,7 +53,7 @@ const products = [
     },
 
     {
-        _id:'4',
+      //  _id:'4',
         name: 'Instax Mini 70',
         image:'/image-products/instax-h.jpg',
         description:'The light of the flash does not reach the background, resulting in a dark-looking photo.',
@@ -66,7 +66,7 @@ const products = [
     },
 
     {
-        _id:'5',
+      //  _id:'5',
         name: 'Instax Mini 8 Dark',
         image:'/image-products/instax-mini8-blue.jpg',
         description:'mini 8 captures bright backgrounds and bright subjects even in dark scenes.',
@@ -78,7 +78,7 @@ const products = [
         stock:95,
     },
     {
-        _id:'6',
+      //  _id:'6',
         name: 'Instax Mini 9 Gray',
         image:'/image-products/instax-mini9-gray.jpg',
         description:'The light of the flash does not reach the background, resulting in a dark-looking photo.',
@@ -90,7 +90,7 @@ const products = [
         stock:120,
     },
     {
-        _id:'7',
+     //   _id:'7',
         name: 'Instax Mini 70',
         image:'/image-products/instax-mini70.jpg',
         description:'The high-performance flash automatically calculates surrounding brightness and adjusts shutter speed accordingly no need for any special settings.',
@@ -102,7 +102,7 @@ const products = [
         stock:65,
     },
     {
-        _id:'8',
+     //   _id:'8',
         name: 'Instax Mini 9 Green',
         image:'/image-products/instax-mini9-green.jpg',
         description:'lorem ipsum dolor',
@@ -114,7 +114,7 @@ const products = [
         stock:25,
     },
     {
-        _id:'9',
+     //   _id:'9',
         name: 'Kodak Pixpro FZ53',
         image:'/image-products/kodak1.jpg',
         description:'lorem ipsum dolor',
@@ -126,7 +126,7 @@ const products = [
         stock:85,
     },
     {
-        _id:'10',
+      //  _id:'10',
         name: 'Kodak Brownie',
         image:'/image-products/kodak-brownie.jpg',
         description:'lorem ipsum dolor',
@@ -138,7 +138,7 @@ const products = [
         stock:65,
     },
     {
-        _id:'11',
+      //  _id:'11',
         name: 'Kodak Pixpro FZ15',
         image:'/image-products/kodak2.jpg',
         description:'The light of the flash does not reach the background, resulting in a dark-looking photo.',
@@ -150,7 +150,7 @@ const products = [
         stock:15,
     },
     {
-        _id:'12',
+      //  _id:'12',
         name: 'Kodak Pixpro',
         image:'/image-products/kodak3.jpg',
         description:'The high-performance flash automatically calculates surrounding brightness and adjusts shutter speed accordingly no need for any special settings.',
