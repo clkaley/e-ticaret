@@ -11,7 +11,7 @@
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "data-imp": "node back-end/seed ",
     "data-dest": "node back-end/seed -d"
-  }, 
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/clkaley/e-ticaret.git"
@@ -28,6 +28,7 @@
     "colors": "^1.4.0",
     "dotenv": "^10.0.0",
     "express": "^4.17.2",
+    "express-async-handler": "^1.2.0",
     "mongoose": "^6.1.5"
   },
   "devDependencies": {
