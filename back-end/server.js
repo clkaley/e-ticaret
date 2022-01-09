@@ -16,6 +16,9 @@ import connectDB from "./config/database.js"
 
 import productRoute from "./route/productRoute.js"
 
+
+import {notFound,errHandler} from './middleLayer/middleLayerError.js'
+
 dotenv.config()
 
 
@@ -23,10 +26,22 @@ connectDB()
 
 const app=express()
 
+//postman ve vs code entegrasyonu çalışıyor mu?
+/*app.use((req,res,next) =>{
+      //console.log("hello")
+      console.log(req.originalUrl)
+      next()
+})
+*/
+
+
 //çalıştığını gösteren
 app.get('/',(req,res) => {
     res.send("API is runnings... :) ")
 })
+
+
+
 
 //ürünleri gösteren
 /*
@@ -43,8 +58,30 @@ app.get('/api/products/:id',(req,res) => {
 })
 */
 
-
 app.use('/api/products/',productRoute)
+
+
+//artık middleLayera aldık url kontrolü
+/*app.use((req,res,next)=>{
+  const error = new Error (`${req.originalUrl}- Not Found`)
+  res.status(404)
+  next(error)
+} )
+*/
+app.use(notFound)
+
+
+//artık middleLayer a aldık id kontorolü
+/*app.use((err,req,res,next)=>{
+    const statusCode=res.statusCode === 200 ? 500 : res.statusCode
+    res.status(statusCode)
+    res.json({
+      message: err.message,
+      stack:process.env.NODE_ENV === 'production' ? null : err.stack,
+    })
+
+})*/
+app.use(errHandler)
 
 const PORT =process.env.PORT || 5000
 
