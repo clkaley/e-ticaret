@@ -1,7 +1,7 @@
 //redux için silindi
 //import axios from 'axios'
-import React, {useState,useEffect} from 'react'
-//import React,{useEffect} from 'react'
+//import React, {useState,useEffect} from 'react'
+import React,{useEffect} from 'react'
 
 //redux için eklendi
 import {useDispatch,useSelector} from 'react-redux'
@@ -48,7 +48,7 @@ const MainDisplay = () => {
 
     return (
         <Container>
-            <h1 >Latest Products</h1>
+            
             {loading ? ( <Loader/> )
              : error ? 
             (<Message variant='danger'>{error}</Message>) : ( <Row>

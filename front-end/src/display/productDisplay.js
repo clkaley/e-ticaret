@@ -41,21 +41,13 @@ function ProductDisplay({match}) {
           dispatch(listProductDetails(id))
         },[dispatch,match]);
 
-  //const product={}
+
 
  
   return <div>
        
         <Col className='my-5 mx-auto'>
-          <Row className='my-5 text-center'>
-                  <Col>
-                  
-                  <Link className='btn btn-light btn-outline-danger btn-sm ms-auto "' to='/'>
-                        Go Back
-                  </Link>    
-                            
-                  </Col>
-                </Row>
+      
        </Col>
        {loading ? <Loader /> :error ? <Message variant="danger">{error}</Message> : (<Row className='mr-2 ms-auto justify-content-md-center '>
             <Col  md={5} >
@@ -112,11 +104,21 @@ function ProductDisplay({match}) {
                   </ListGroupItem>
                   
                 </Card>
+                <Row className='my-5 text-center'>
+                  <Col>
+                  
+                  <Link className='btn btn-light btn-outline-danger btn-sm ms-auto "' to='/'>
+                        Go Back
+                  </Link>    
+                            
+                  </Col>
+                </Row>
              
               </Col>
               
             
         </Row>
+        
          )}
 
 
