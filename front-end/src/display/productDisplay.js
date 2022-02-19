@@ -14,7 +14,7 @@ import { useParams } from 'react-router-dom';
 //import products from '../products'
 import { useNavigate } from 'react-router';
  //shopping-cart
-function ProductDisplay({history,match}) {
+function ProductDisplay({match}) {
   //qty,setqty
  const [qty,setqty]=useState(0)
 
@@ -26,10 +26,13 @@ function ProductDisplay({history,match}) {
           dispatch(listProductDetails(id))
         },[dispatch,match]);
 
-  //const navigate = useNavigate();
 
+  const navigate = useNavigate();
   const addToCardHandler = () => {
-        history.push(`/shopping-cart/${id}?qty=${qty}`)
+    //ikiside oluyor.
+    //navigate(`/cart/${id}?qty=${qty}`)
+    navigate(`/shopping-cart/${id}?qty=${qty}`)
+
     };
 
  //const match = useParams()
@@ -125,7 +128,7 @@ function ProductDisplay({history,match}) {
 
                   <ListGroupItem className='mx-auto'>
                     <Button
-                    onChange={addToCardHandler}
+                    onClick={addToCardHandler}
                     className='btn-block btn-danger ' type='button'
                     disabled={product.stock===0}>
                       Add To Shopping Cart
