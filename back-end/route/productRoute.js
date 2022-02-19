@@ -15,7 +15,12 @@ const router =express.Router()
 
 router.get('/',asyncHandler(async (req,res) => {
     const products = await Product.find({})
+
+    //redux ta componentler için hata mesajı verme
+  //  throw new Error ("some eror")
     res.json(products)
+   
+
   }))
 
 
