@@ -1,6 +1,6 @@
 //redux için yapıldı
-//import React, {useState,useEffect} from 'react'
-import React, {useEffect} from 'react'
+import React, {useState,useEffect} from 'react'
+//import React, {useEffect} from 'react'
 //import axios from 'axios'
 import {useDispatch,useSelector} from 'react-redux';
 import { listProductDetails } from '../action/productAction';
@@ -8,14 +8,31 @@ import Loader from '../component/Loader';
 import Message from '../component/Message'
 
 import { Link } from 'react-router-dom'
-import { Row, Col, Image, ListGroup, Card, Button, ListGroupItem } from 'react-bootstrap'
+import { Row, Col, Image, ListGroup, Card, Button, ListGroupItem, Form } from 'react-bootstrap'
 import Rating from '../component/Rating'
 import { useParams } from 'react-router-dom';
 //import products from '../products'
+import { useNavigate } from 'react-router';
+ //shopping-cart
+function ProductDisplay({history,match}) {
+  //qty,setqty
+ const [qty,setqty]=useState(0)
 
- 
-function ProductDisplay({match}) {
-  //const match = useParams()
+  const dispatch=useDispatch()
+  const productDetails=useSelector(state=>state.productDetails);
+  const {loading,error,product}=productDetails
+  const { id } = useParams();
+        useEffect(()=>{
+          dispatch(listProductDetails(id))
+        },[dispatch,match]);
+
+  //const navigate = useNavigate();
+
+  const addToCardHandler = () => {
+        history.push(`/shopping-cart/${id}?qty=${qty}`)
+    };
+
+ //const match = useParams()
   //const product = products.find((p) => p._id === match.id);
 
   //redux için
@@ -31,17 +48,6 @@ function ProductDisplay({match}) {
     }
     fetchProducts()
 }, [match])*/
-
-
-  const dispatch=useDispatch()
-  const productDetails=useSelector(state=>state.productDetails);
-  const {loading,error,product}=productDetails
-  const { id } = useParams();
-        useEffect(()=>{
-          dispatch(listProductDetails(id))
-        },[dispatch,match]);
-
-
 
  
   return <div>
@@ -62,6 +68,7 @@ function ProductDisplay({match}) {
                     <h2>{product.name}</h2>
                   </ListGroupItem>
               </ListGroup>
+
               <ListGroupItem  >
                 <Rating   value={product.rating} text={`${product.total_comments} comments`} />
               </ListGroupItem>
@@ -97,8 +104,30 @@ function ProductDisplay({match}) {
                       </Row>
                     </ListGroupItem>
                   </ListGroup>
+
+                  {product.stock >0 && (
+                    <ListGroupItem>
+                      <Row>
+                          <Col> Qty
+                          </Col>
+                          <Col>
+                            <Form.Control as="select" value={qty} onChange={(e)=>setqty(e.target.value)}>
+                             {
+                              [...Array(product.stock).keys()].map((x) =>(
+                                <option key={ x + 1 } value={ x + 1 }>{ x + 1 }</option>
+                              ))}
+                              
+                            </Form.Control>
+                          </Col>
+                      </Row>
+                    </ListGroupItem>
+                  )}
+
                   <ListGroupItem className='mx-auto'>
-                    <Button className='btn-block btn-danger ' type='button' disabled={product.stock===0}>
+                    <Button
+                    onChange={addToCardHandler}
+                    className='btn-block btn-danger ' type='button'
+                    disabled={product.stock===0}>
                       Add To Shopping Cart
                     </Button>
                   </ListGroupItem>
