@@ -1,5 +1,12 @@
-import React, {useState,useEffect} from 'react'
-import axios from 'axios'
+//redux için yapıldı
+//import React, {useState,useEffect} from 'react'
+import React, {useEffect} from 'react'
+//import axios from 'axios'
+import {useDispatch,useSelector} from 'react-redux';
+import { listProductDetails } from '../action/productAction';
+import Loader from '../component/Loader';
+import Message from '../component/Message'
+
 import { Link } from 'react-router-dom'
 import { Row, Col, Image, ListGroup, Card, Button, ListGroupItem } from 'react-bootstrap'
 import Rating from '../component/Rating'
@@ -10,10 +17,12 @@ import { useParams } from 'react-router-dom';
 function ProductDisplay({match}) {
   //const match = useParams()
   //const product = products.find((p) => p._id === match.id);
-  const { id } = useParams();
-  const [product, setProducts]=useState({})
 
-  useEffect(()=>{
+  //redux için
+ // const { id } = useParams();
+  //const [product, setProducts]=useState({})
+
+  /*useEffect(()=>{
     const fetchProducts= async () => {
        const { data } = await axios.get(`/api/products/${id}`)
       //  const {data}= await axios.get(`/api/products/ ${match.params.id}`)
@@ -21,15 +30,34 @@ function ProductDisplay({match}) {
         setProducts(data)
     }
     fetchProducts()
-}, [match])
+}, [match])*/
+
+
+  const dispatch=useDispatch()
+  const productDetails=useSelector(state=>state.productDetails);
+  const {loading,error,product}=productDetails
+  const { id } = useParams();
+        useEffect(()=>{
+          dispatch(listProductDetails(id))
+        },[dispatch,match]);
+
+  //const product={}
 
  
   return <div>
        
-       <Col className='my-5 mx-auto'>
-     
+        <Col className='my-5 mx-auto'>
+          <Row className='my-5 text-center'>
+                  <Col>
+                  
+                  <Link className='btn btn-light btn-outline-danger btn-sm ms-auto "' to='/'>
+                        Go Back
+                  </Link>    
+                            
+                  </Col>
+                </Row>
        </Col>
-        <Row className='mr-2 ms-auto justify-content-md-center '>
+       {loading ? <Loader /> :error ? <Message variant="danger">{error}</Message> : (<Row className='mr-2 ms-auto justify-content-md-center '>
             <Col  md={5} >
               <Image  src={product.image} alt={product.name} fluid />
             </Col>
@@ -84,17 +112,15 @@ function ProductDisplay({match}) {
                   </ListGroupItem>
                   
                 </Card>
-             <Row className='my-5 text-center'>
-               <Col>
-               
-               <Link className='btn btn-light btn-outline-danger btn-sm ms-auto "' to='/'>
-          Go Back
-        </Link>               </Col>
-             </Row>
+             
               </Col>
               
             
         </Row>
+         )}
+
+
+        
     </div>
 }
  
