@@ -13,12 +13,14 @@ const reducer = combineReducers({
     card:cardReducer
 })
 
+
+
 const cardItemsFromStorage=localStorage.getItem("cardItems") ? JSON.parse(localStorage.getItem("cardItems")) : []
 
 
 const initialState={
-    card:{cardItems:cardItemsFromStorage}
-}
+    card: { cardItems : cardItemsFromStorage},
+};
 
 
 const middleLayer=[thunk]

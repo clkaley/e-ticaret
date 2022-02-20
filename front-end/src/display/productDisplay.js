@@ -16,7 +16,7 @@ import { useNavigate } from 'react-router';
  //shopping-cart
 function ProductDisplay({match}) {
   //qty,setqty
- const [qty,setqty]=useState(0)
+ const [qty,setqty]=useState(1);
 
   const dispatch=useDispatch()
   const productDetails=useSelector(state=>state.productDetails);
