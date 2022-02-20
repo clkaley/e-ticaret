@@ -2,17 +2,18 @@ import React,{ useEffect } from 'react'
 import {Link} from 'react-router-dom';
 import {useDispatch, useSelector }from   'react-redux';
 import {Row,Col,ListGroup,Image,Form,Button,Card, ListGroupItem} from 'react-bootstrap'
-import { addToCard } from '../action/cardAction'
+import { addToCard,removeFromCard } from '../action/cardAction'
 import Message from '../component/Message';
 //import { useParams } from 'react-router-dom';
-import { useLocation, useParams, useHistory } from 'react-router-dom'
+import { useLocation, useParams, useHistory } from 'react-router-dom';
 
 
 const ShoppingCardDisplay = (location) => {
 
   const { id: productId } = useParams()
 
-  const qty = new URLSearchParams(useLocation().search).get('qty')
+  //const qty = new URLSearchParams(useLocation().search).get('qty')
+  const qty = location.search ? Number(location.search.split('=')[1]) : 1
   
 
   const dispatch= useDispatch();
@@ -29,9 +30,16 @@ const ShoppingCardDisplay = (location) => {
 
   const removeFromCardHandler=(id) =>{
     console.log('remove');
+    dispatch(removeFromCard(id));
   }
 
- 
+
+  //check edilmiyor
+  const checkOutHandler = () => {
+    console.log("check")
+}
+
+
  /* const { id } = useParams();
   const productId=useParams();*/
 
@@ -73,10 +81,10 @@ const ShoppingCardDisplay = (location) => {
 
   return (
     
-      <Row>
-        <Col md={8}>
-        <h1 >Shopping Card</h1>
-        {cardItems.length ===0 ? <Message className="">Your Shopping Cart is empty  <Link className='btn btn-info  btn-sm ms-auto  "' to='/'>
+      <Row className='my-5'>
+        <Col md={9}>
+        {/* <h1 >Shopping Card</h1> */}
+        {cardItems.length ===0 ? <Message className="">Your Shopping Card is empty  <Link className='btn btn-info  btn-sm ms-auto  "' to='/'>
                         Go Back
                   </Link>    </Message> : (
           <ListGroup variant='flush'>
@@ -93,7 +101,7 @@ const ShoppingCardDisplay = (location) => {
                     {item.price}
                   </Col>
                   <Col md={2}>
-                  <Form.Control as="select" value={item.qty} onChange={(e)=>dispatch( addToCard(item.product, Number(e.target.value)))}>
+                  <Form.Control as="select" value={item.qty} onChange={(e) => dispatch(addToCard(item.product, Number(e.target.value)))}>
                              {
                               [...Array(item.stock).keys()].map((x) =>(
                                 <option key={ x + 1 } value={ x + 1 }>{ x + 1 }</option>
@@ -114,12 +122,20 @@ const ShoppingCardDisplay = (location) => {
           
         )}
        </Col>
-          <Col md={4}>
+          <Col md={3}>
               <Card>
-                <ListGroup variant='flush'>
+                <ListGroup variant='flush' className='text-center'>
                   <ListGroupItem>
-                    <h2>Total ({cardItems.reduce((acc,item)=> (acc + item.qty),0)}) Items</h2>
-                    ${cardItems.reduce((acc,item)=>acc+item.qty * item.price,0).toFixed(2)}
+                    <h2>Total {cardItems.reduce((acc, item) => acc + item.qty, 0)} Items</h2>
+                    $ {cardItems.reduce((acc, item)=>(acc+(item.qty) * (item.price)), 0).toFixed(2)} 
+                  </ListGroupItem>
+                  <ListGroupItem className='text-center'>
+                    <Button 
+                    type='button'
+                     className='btn btn-block '
+                     disabled={cardItems.length===0 } onClick={checkOutHandler}>
+                       Keep Checking
+                    </Button>
                   </ListGroupItem>
                 </ListGroup>
               </Card>

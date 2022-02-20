@@ -18,6 +18,7 @@ const  App = ()=> {
                   < Route path='/product/:id' element={<ProductDisplay/>}  /> 
                   < Route path='/shopping-cart/:id' element={<ShoppingCardDisplay/>}  /> 
                   < Route path='/shopping-cart/' element={<ShoppingCardDisplay/>}  /> 
+                
                   </Routes>
                 </Container>
           </main>

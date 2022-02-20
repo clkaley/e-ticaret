@@ -1,4 +1,4 @@
-import {CARD_ADD_ITEM} from '../constant/cardConstant'
+import {CARD_ADD_ITEM,CARD_REMOVE_ITEM} from '../constant/cardConstant'
 
 
 export const cardReducer =(state ={
@@ -19,6 +19,11 @@ export const cardReducer =(state ={
                     cardItems:[...state.cardItems,item]
                 }
             }
+            case CARD_REMOVE_ITEM:
+                return {
+                    ...state ,
+                    cardItems:state.cardItems.filter((x)=>x.product !== action.payload)
+                }
         default:
             return state
     }
