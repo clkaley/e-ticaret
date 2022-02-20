@@ -5,14 +5,16 @@ import {Row,Col,ListGroup,Image,Form,Button,Card, ListGroupItem} from 'react-boo
 import { addToCard,removeFromCard } from '../action/cardAction'
 import Message from '../component/Message';
 //import { useParams } from 'react-router-dom';
-import { useLocation, useParams, useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router';
+import { useLocation, useParams ,useHistory} from 'react-router-dom'
+
 
 
 const ShoppingCardDisplay = (location) => {
 
   const { id: productId } = useParams()
 
-  //const qty = new URLSearchParams(useLocation().search).get('qty')
+  //const qty = new URLSearchParams(useLocation().search).get('qty') 
   const qty = location.search ? Number(location.search.split('=')[1]) : 1
   
 
@@ -33,11 +35,14 @@ const ShoppingCardDisplay = (location) => {
     dispatch(removeFromCard(id));
   }
 
-
+  
+const navigate=useNavigate();
   //check edilmiyor
-  const checkOutHandler = () => {
-    console.log("check")
-}
+    const checkOutHandler = () => {
+     navigate('/login')
+      console.log("check")
+ }
+
 
 
  /* const { id } = useParams();
@@ -127,7 +132,7 @@ const ShoppingCardDisplay = (location) => {
                 <ListGroup variant='flush' className='text-center'>
                   <ListGroupItem>
                     <h2>Total {cardItems.reduce((acc, item) => acc + item.qty, 0)} Items</h2>
-                    $ {cardItems.reduce((acc, item)=>(acc+(item.qty) * (item.price)), 0).toFixed(2)} 
+                    $ {cardItems.reduce((acc, item)=>(acc+item.qty * item.price), 0).toFixed(2)} 
                   </ListGroupItem>
                   <ListGroupItem className='text-center'>
                     <Button 

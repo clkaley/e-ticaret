@@ -111,7 +111,7 @@ function ProductDisplay({match}) {
                   {product.stock >0 && (
                     <ListGroupItem>
                       <Row>
-                          <Col> Qty
+                          <Col> Qty:
                           </Col>
                           <Col>
                             <Form.Control as="select" value={qty} onChange={(e)=>setqty(e.target.value)}>
@@ -131,7 +131,7 @@ function ProductDisplay({match}) {
                     onClick={addToCardHandler}
                     className='btn-block btn-danger ' type='button'
                     disabled={product.stock===0}>
-                      Add To Shopping Cart
+                      Add to Card
                     </Button>
                   </ListGroupItem>
                   
