@@ -3,18 +3,15 @@ import express from 'express'
 
 import dotenv from 'dotenv'
 //const dotenv=require('dotenv')
-
-
 //import products from './data/products.js'
 //const products=require('./data/products')
-
 import colors from 'colors'
-
 //database import edildi
 import connectDB from "./config/database.js"
 
 
 import productRoute from "./route/productRoute.js"
+import userRoute from "./route/userRoute.js"
 
 
 import {notFound,errHandler} from './middleLayer/middleLayerError.js'
@@ -25,6 +22,9 @@ dotenv.config()
 connectDB()
 
 const app=express()
+
+//user & authentication
+app.use(express.json())
 
 //postman ve vs code entegrasyonu çalışıyor mu?
 /*app.use((req,res,next) =>{
@@ -59,6 +59,7 @@ app.get('/api/products/:id',(req,res) => {
 */
 
 app.use('/api/products/',productRoute)
+app.use('/api/users',userRoute)
 
 
 //artık middleLayera aldık url kontrolü
