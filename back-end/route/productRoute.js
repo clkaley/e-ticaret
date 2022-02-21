@@ -1,9 +1,13 @@
 import express from "express";
-import Product from '../models/productModel.js'
-import asyncHandler from "express-async-handler";
-import mongoose from "mongoose";
+import{ getProducts,getProductById } from '../controllers/productController.js'
+//import Product from '../models/productModel.js'
+//import asyncHandler from "express-async-handler";
+//import mongoose from "mongoose";
 
 const router =express.Router()
+
+router.route('/').get(getProducts)
+router.route('/:id').get(getProductById)
 
 
 
@@ -13,7 +17,9 @@ const router =express.Router()
     access ürünleri public hale getirme
 */ 
 
-router.get('/',asyncHandler(async (req,res) => {
+
+////controllers için daha temiz hale getirildi
+/*router.get('/',asyncHandler(async (req,res) => {
     const products = await Product.find({})
 
     //redux ta componentler için hata mesajı verme
@@ -21,7 +27,9 @@ router.get('/',asyncHandler(async (req,res) => {
     res.json(products)
    
 
-  }))
+  }))*/
+
+
 
 
 /*
@@ -29,6 +37,8 @@ router.get('/',asyncHandler(async (req,res) => {
     route GET/api/products
     access ürünleri public hale getirme
 */ 
+//controllers için
+/*
 router.get(
     "/:id",
     asyncHandler(async (req, res) => {
@@ -48,6 +58,8 @@ router.get(
         }
     })
 );
+
+*/
 
 /*router.get('/:id',asyncHandler(async(req,res) => {
     const product = await Product.findById(req.params.id)
