@@ -6,6 +6,7 @@ import Footer from './component/Footer'
 import MainDisplay from './display/MainDisplay'
 import ProductDisplay from './display/ProductDisplay'
 import ShoppingCardDisplay from './display/ShoppingCardDisplay'
+import LoginDisplay from './display/LoginDisplay'
 
 const  App = ()=> {
   return (
@@ -14,6 +15,8 @@ const  App = ()=> {
          <main className='py-2'> 
                 <Container>
                   <Routes>
+                  < Route path='/login' element={<LoginDisplay/>}  />  
+                  < Route path='/product/:id' element={<ProductDisplay/>}  /> 
                   < Route path='/' element={<MainDisplay/>} exact />  
                   < Route path='/product/:id' element={<ProductDisplay/>}  /> 
                   < Route path='/shopping-cart/:id' element={<ShoppingCardDisplay/>}  /> 
