@@ -22,7 +22,7 @@ function ProductDisplay({match}) {
   const productDetails=useSelector(state=>state.productDetails);
   const {loading,error,product}=productDetails
   const { id } = useParams();
-        useEffect(()=>{
+  useEffect(()=>{
           dispatch(listProductDetails(id))
         },[dispatch,match]);
 

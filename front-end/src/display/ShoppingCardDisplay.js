@@ -6,7 +6,7 @@ import { addToCard,removeFromCard } from '../action/cardAction'
 import Message from '../component/Message';
 //import { useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router';
-import { useLocation, useParams ,useHistory} from 'react-router-dom'
+import {  useParams } from 'react-router-dom'
 
 
 

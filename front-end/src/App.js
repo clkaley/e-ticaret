@@ -7,6 +7,8 @@ import MainDisplay from './display/MainDisplay'
 import ProductDisplay from './display/ProductDisplay'
 import ShoppingCardDisplay from './display/ShoppingCardDisplay'
 import LoginDisplay from './display/LoginDisplay'
+import RegisterDisplay from './display/RegisterDisplay'
+import ProfileDisplay from './display/ProfileDisplay'
 
 const  App = ()=> {
   return (
@@ -16,6 +18,8 @@ const  App = ()=> {
                 <Container>
                   <Routes>
                   < Route path='/login' element={<LoginDisplay/>}  />  
+                  < Route path='/register' element={<RegisterDisplay/>}  />  
+                  < Route path='/profile' element={<ProfileDisplay/>}  />  
                   < Route path='/product/:id' element={<ProductDisplay/>}  /> 
                   < Route path='/' element={<MainDisplay/>} exact />  
                   < Route path='/product/:id' element={<ProductDisplay/>}  /> 

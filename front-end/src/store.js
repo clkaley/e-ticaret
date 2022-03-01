@@ -3,7 +3,7 @@ import thunk from 'redux-thunk'
 import {composeWithDevTools} from 'redux-devtools-extension'
 import {productListReducer,productDetailsReducer} from './reducers/productReducers'
 import {cardReducer} from './reducers/cardReducers'
-import {userLoginReducer} from './reducers/userReducers'
+import {userLoginReducer,userRegisterReducer,userDetailsReducer,userUpdateProfileReducer} from './reducers/userReducers'
 
 
 
@@ -13,7 +13,11 @@ const reducer = combineReducers({
     productDetails:productDetailsReducer,
     card:cardReducer,
     userLogin:userLoginReducer,
+    userRegister:userRegisterReducer,
+    userDetails:userDetailsReducer,
+    userUpdateProfile:userUpdateProfileReducer,
 })
+
 
 
 //card bilgilerini local e kaydetme
