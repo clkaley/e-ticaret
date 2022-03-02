@@ -9,7 +9,7 @@ import ShoppingCardDisplay from './display/ShoppingCardDisplay'
 import LoginDisplay from './display/LoginDisplay'
 import RegisterDisplay from './display/RegisterDisplay'
 import ProfileDisplay from './display/ProfileDisplay'
-
+import ShippingDisplay from './display/ShippingDisplay'
 const  App = ()=> {
   return (
     <BrowserRouter>
@@ -18,6 +18,7 @@ const  App = ()=> {
                 <Container>
                   <Routes>
                   < Route path='/login' element={<LoginDisplay/>}  />  
+                  < Route path='/shipping' element={<ShippingDisplay/>}  /> 
                   < Route path='/register' element={<RegisterDisplay/>}  />  
                   < Route path='/profile' element={<ProfileDisplay/>}  />  
                   < Route path='/product/:id' element={<ProductDisplay/>}  /> 

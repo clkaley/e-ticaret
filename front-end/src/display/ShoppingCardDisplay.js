@@ -39,7 +39,8 @@ const ShoppingCardDisplay = (location) => {
 const navigate=useNavigate();
   //check edilmiyor
     const checkOutHandler = () => {
-     navigate('/login')
+      //'/login?redirect=shipping'
+     navigate('/login?redirect=shipping')
       console.log("check")
  }
 
