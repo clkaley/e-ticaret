@@ -5,6 +5,8 @@ import {productListReducer,productDetailsReducer} from './reducers/productReduce
 import {cardReducer} from './reducers/cardReducers'
 import {userLoginReducer,userRegisterReducer,userDetailsReducer,userUpdateProfileReducer} from './reducers/userReducers'
 
+import {orderCreateReducer} from './reducers/orderReducers'
+
 
 
 
@@ -16,6 +18,7 @@ const reducer = combineReducers({
     userRegister:userRegisterReducer,
     userDetails:userDetailsReducer,
     userUpdateProfile:userUpdateProfileReducer,
+    orderCreate:orderCreateReducer,
 })
 
 
@@ -39,10 +42,17 @@ JSON.parse(localStorage.getItem("shippingAddress")) :{
 }
 
 
+const paymentMethodFromStorage = localStorage.getItem('paymentMethod')
+  ? JSON.parse(localStorage.getItem('paymentMethod'))
+  : {};
+ 
+
 
 const initialState={
     card: { 
-        cardItems : cardItemsFromStorage,shippingAddress:shippingAddresFromStorage
+        cardItems : cardItemsFromStorage,shippingAddress:shippingAddresFromStorage,
+        paymentMethod: paymentMethodFromStorage,
+
     },
     userLogin:{
         userInfo:userInfoFromStorage

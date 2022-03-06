@@ -1,5 +1,5 @@
 import axios from 'axios'
-import {CARD_ADD_ITEM,CARD_REMOVE_ITEM, CARD_SAVE_SHIPPING_ADDRESS} from '../constant/cardConstant'
+import {CARD_ADD_ITEM,CARD_REMOVE_ITEM, CARD_SAVE_SHIPPING_ADDRESS,CARD_SAVE_PAYMENT_METHOD} from '../constant/cardConstant'
 
 
 export const addToCard = (id,qty) => async (dispatch,getState) => {
@@ -39,4 +39,12 @@ export const saveShippingAddress= (data)=>(dispatch)=>{
    // payload:id
   })
   localStorage.setItem('shippingAddress',JSON.stringify(data))
+}
+
+export const savePaymentMethod= (data)=>(dispatch)=>{
+  dispatch({
+    type:CARD_SAVE_PAYMENT_METHOD,
+   // payload:id
+  })
+  localStorage.setItem('paymentMethod',JSON.stringify(data))
 }

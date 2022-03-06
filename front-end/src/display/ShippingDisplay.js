@@ -31,8 +31,8 @@ const ShippingDisplay = ({history}) => {
   }
 
   return (
-    <FormContainer>
-      <CheckOut  s1 s2 s3 s4 />
+    <FormContainer >
+      <CheckOut  s1 s2  />
         <h1 className="text-center my-3  " style={{color:'red'}}>Shippping</h1>
           <Form onSubmit={submitHandler}>
 
@@ -88,11 +88,14 @@ const ShippingDisplay = ({history}) => {
                   onChange={(e)=>setCountry(e.target.value)}>
                 </FormControl>
             </FormGroup>
-          
-            <Button type='submit' variant='primary'
-            className='my-2 btn-block btn-danger text-center '>
-              Continue
-            </Button>
+
+
+          <div className='text-end'>
+              <Button type='submit' variant='primary'
+              className='my-2 btn-block btn-danger  '>
+                Continue
+              </Button>
+          </div>
           
           </Form>
 

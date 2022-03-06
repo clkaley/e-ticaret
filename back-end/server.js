@@ -12,6 +12,7 @@ import connectDB from "./config/database.js"
 
 import productRoute from "./route/productRoute.js"
 import userRoute from "./route/userRoute.js"
+import orderRoute from "./route/orderRoute.js"
 
 
 import {notFound,errHandler} from './middleLayer/middleLayerError.js'
@@ -60,7 +61,7 @@ app.get('/api/products/:id',(req,res) => {
 
 app.use('/api/products/',productRoute)
 app.use('/api/users',userRoute)
-
+app.use('/api/orders',orderRoute)
 
 //artık middleLayera aldık url kontrolü
 /*app.use((req,res,next)=>{

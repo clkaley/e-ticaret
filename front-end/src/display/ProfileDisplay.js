@@ -83,7 +83,7 @@ const ProfileDisplay = ({history}) => {
 
 }
   return (
-    <Row>
+    <Row className='my-4'>
         <Col md={3}>
         <h2 className="text-center my-3 text-muted">User Profile</h2>
         {message && <Message variant='danger'>{message}</Message>}
@@ -111,15 +111,15 @@ const ProfileDisplay = ({history}) => {
                 <FormControl type='password' placeholder='Enter Confirm Password' value={confirmPassword} onChange={(e)=>setConfirmPassword(e.target.value)}></FormControl>
             </FormGroup>
            
-           
+           <div className='text-center'>
             <Button type='submit' variant='primary' className='my-3 btn-block btn-danger '>
                Update Info
             </Button>
-         
+            </div>
         </Form>
         </Col>
 
-        <Col md={9} className="my-5 px-3 text-center" >
+        <Col md={9} className="my-3 text-center" >
             <h2>My Orders </h2>
         </Col>
     </Row>

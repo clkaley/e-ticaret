@@ -1,4 +1,4 @@
-import {CARD_ADD_ITEM,CARD_REMOVE_ITEM,CARD_SAVE_SHIPPING_ADDRESS} from '../constant/cardConstant'
+import {CARD_ADD_ITEM,CARD_REMOVE_ITEM,CARD_SAVE_SHIPPING_ADDRESS,CARD_SAVE_PAYMENT_METHOD} from '../constant/cardConstant'
 
 
 export const cardReducer =(state ={
@@ -32,6 +32,13 @@ export const cardReducer =(state ={
                         shippingAddress:action.payload,
                         
                     }
+
+                case CARD_SAVE_PAYMENT_METHOD:
+                    return {
+                            ...state ,
+                            paymentMethod:action.payload,
+                            
+                        }
         default:
             return state
     }
