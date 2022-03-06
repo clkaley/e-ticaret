@@ -31,9 +31,23 @@ localStorage.getItem("userInfo") ?
 JSON.parse(localStorage.getItem("userInfo")) : []
 
 
+//adres bilgileri için
+const shippingAddresFromStorage=
+localStorage.getItem("shippingAddress") ?
+JSON.parse(localStorage.getItem("shippingAddress")) :{
+    
+}
+
+
+
 const initialState={
-    card: { cardItems : cardItemsFromStorage},
-    userLogin:{userInfo:userInfoFromStorage},
+    card: { 
+        cardItems : cardItemsFromStorage,shippingAddress:shippingAddresFromStorage
+    },
+    userLogin:{
+        userInfo:userInfoFromStorage
+    },
+
     
 };
 

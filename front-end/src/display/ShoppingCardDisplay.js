@@ -40,7 +40,7 @@ const navigate=useNavigate();
   //check edilmiyor
     const checkOutHandler = () => {
       //'/login?redirect=shipping'
-     navigate('/login?redirect=shipping')
+     navigate('/shipping')
       console.log("check")
  }
 
@@ -132,8 +132,9 @@ const navigate=useNavigate();
               <Card>
                 <ListGroup variant='flush' className='text-center'>
                   <ListGroupItem>
-                    <h2>Total {cardItems.reduce((acc, item) => acc + item.qty, 0)} Items</h2>
-                    $ {cardItems.reduce((acc, item)=>((acc) +( item.qty)* (item.price)), 0).toFixed(2)} 
+                    <h3>Total {cardItems.reduce((acc, item) => acc + item.qty,0)} Items 
+                    </h3>
+                    {/* <h3> {cardItems.reduce((acc, item)=> acc + item.price * item.qty, 0)} </h3> */}
                   </ListGroupItem>
                   <ListGroupItem className='text-center'>
                     <Button 
