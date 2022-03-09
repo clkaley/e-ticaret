@@ -1,6 +1,6 @@
 import mongoose from 'mongoose'
 
-
+//7.03 tarihinde order hata verdiği için price ve taksitlendirmeleri Number olduğu halde string olarak değiştirdim
 const orderSchema=mongoose.Schema({
     user: {
         type:mongoose.Schema.Types.ObjectId,
@@ -13,8 +13,9 @@ const orderSchema=mongoose.Schema({
                 type:String,
                 required:true
             },
-            quantity:{
-                type:Number,
+            //quantity
+            qty:{
+                type:String,
                 required:true
             },
             image:{
@@ -22,7 +23,7 @@ const orderSchema=mongoose.Schema({
                 required:true
             },
             price:{
-                type:Number,
+                type:String,
                 required:true
             },
             product:{
@@ -32,7 +33,7 @@ const orderSchema=mongoose.Schema({
             }
         }
     ],
-    deliveryAddress: {
+    shippingAddress: {
         address:{
             type:String,
             required:true
@@ -51,7 +52,7 @@ const orderSchema=mongoose.Schema({
         }  
     },
 
-    paymentType: {
+    paymentMethod: {
         type:String,
         required:true,
     },
@@ -71,17 +72,17 @@ const orderSchema=mongoose.Schema({
        
     },
     taxPrice: {
-        type:Number,
+        type:String,
         required:true,
         default:0.0,
     },
     shippingPrice: {
-        type:Number,
+        type:String,
         required:true,
         default:0.0,
     },
     totalPrice: {
-        type:Number,
+        type:String,
         required:true,
         default:0.0,
     },
@@ -90,20 +91,20 @@ const orderSchema=mongoose.Schema({
         required:true,
         default:false,
     },
-    taxPrice: {
+    /*taxPrice: {
         type:Number,
         required:true,
         default:0.0,
-    },
-    paid:{
+    },*/
+    paidAt:{
         type:Date,
     },
-    isDeliver:{
+    isDelivered:{
         type:Boolean,
         required:true,
         default:false,
     },
-    delivery:{
+    deliveredAt:{
         type:Date,
     },
 }, {

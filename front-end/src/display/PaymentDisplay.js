@@ -8,8 +8,6 @@ import { useNavigate } from 'react-router';
 import CheckOut from '../component/CheckOut.js'
 
 
-
-
 const PaymentDisplay = ({history}) => {
   //cart
   const card=useSelector(state=>state.card)
