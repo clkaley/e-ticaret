@@ -94,7 +94,22 @@ const updateOrderToPaid=asyncHandler (async(req,res)=>{
   
  })
 
+  
+/*
+    @desc Get logged in user orders
+    @route GET/api/orders/myorders kullanıcının siparişlerini çekme
+    @access Private erişimi gizleme
+*/ 
 
-export {addOrderItems,getOrderById,updateOrderToPaid}
+
+ const getMyOrders=asyncHandler (async(req,res)=>{
+    const orders=await Order.find({user:req.user._id})
+    res.json(orders)
+  
+ })
+
+
+
+export {addOrderItems,getOrderById,updateOrderToPaid,getMyOrders}
 
 
