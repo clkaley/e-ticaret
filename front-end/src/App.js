@@ -12,6 +12,7 @@ import ProfileDisplay from './display/ProfileDisplay'
 import ShippingDisplay from './display/ShippingDisplay'
 import PaymentDisplay from './display/PaymentDisplay'
 import PlaceOrderDisplay from './display/PlaceOrderDisplay'
+import OrderDisplay from './display/OrderDisplay'
 
 const  App = ()=> {
   return (
@@ -20,6 +21,7 @@ const  App = ()=> {
          <main className='py-2'> 
                 <Container>
                   <Routes>
+                  < Route path='/order/:id' element={<OrderDisplay/>}  />  
                   < Route path='/login' element={<LoginDisplay/>}  />  
                   < Route path='/shipping' element={<ShippingDisplay/>}  /> 
                   < Route path='/payment' element={<PaymentDisplay/>}  /> 
