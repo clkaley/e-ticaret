@@ -1,5 +1,10 @@
 import express from "express";
-import{ authUsers,getUserProfile,registerUser,updateUserProfile,getUsers} from '../controllers/userController.js'
+import{ authUsers,
+    getUserProfile,
+    registerUser,
+    updateUserProfile,
+    getUsers,
+    deleteUser} from '../controllers/userController.js'
 import { protect,admin } from "../middleLayer/authenticationMiddleLayer.js";
 //import Product from '../models/productModel.js'
 //import asyncHandler from "express-async-handler";
@@ -14,6 +19,11 @@ router.post('/login',authUsers)
 //router.route('/profile').get(protect,getUserProfile)
 
 router.route('/profile').get(protect,getUserProfile).put(protect,updateUserProfile)
+
+
+
+//back-end de silme işlemi başarısız
+router.route('/:id').delete(protect, admin, deleteUser)
 
 export default router
 

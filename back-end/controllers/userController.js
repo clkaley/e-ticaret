@@ -100,6 +100,29 @@ const getUsers=asyncHandler (async(req,res)=>{
 })
 
 
+
+/*
+    @desc delete users
+    @route GET/api/users/:id
+    @access Gizleme (private)/ admin
+*/ 
+
+const deleteUser=asyncHandler (async(req,res)=>{
+    //res.send('Success :)')
+    const user= await User.findById(req.params.id)
+
+    if(user){ 
+        await user.remove
+        res.json({message: 'User Removed'})
+
+    }else{
+       res.status(404)
+       throw new Error ('User Not Found')
+    }
+  
+})
+
+
 /*
     @desc UPDATE user Profile
     @route GET/api/users/profile
@@ -134,6 +157,9 @@ const updateUserProfile=asyncHandler (async(req,res)=>{
 
 
 export{
-    authUsers,getUserProfile,registerUser,updateUserProfile,
-    getUsers
+    authUsers,getUserProfile,
+    registerUser,
+    updateUserProfile,
+    getUsers,
+    deleteUser
 }
