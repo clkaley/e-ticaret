@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Navbar,Nav, Container, NavDropdown, } from 'react-bootstrap'
 //import { NavLink} from 'react-router-dom'
 import { logout } from '../action/userAction'
+import { Link } from 'react-router-dom'
 
 
 const Header = ({color}) => {
@@ -42,18 +43,8 @@ const Header = ({color}) => {
 
 
     {userInfo ?  (
-
-        /*
-         <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-          <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-          <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-          <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-          <NavDropdown.Divider />
-          <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
-        </NavDropdown>
-        */ 
         <NavDropdown className="my-2" title={userInfo.name} id='username'>
-             <NavDropdown.Item href="profile">Profile</NavDropdown.Item>
+             <NavDropdown.Item href="/profile">Profile</NavDropdown.Item>
              
              <NavDropdown.Item onClick={logoutHandler}>
                 Log Out
@@ -62,6 +53,16 @@ const Header = ({color}) => {
         </NavDropdown>
     ) :
      <Nav.Link href="/login"><i className="fas fa-child fa-2x"></i>Sign In</Nav.Link> }
+
+     {userInfo && userInfo.isAdmin && (
+        <NavDropdown className="my-2" title='admin' id='admin'>
+             <NavDropdown.Item href="admin/userlist">Users</NavDropdown.Item>
+
+             <NavDropdown.Item href="admin/productlist">Products</NavDropdown.Item>
+
+             <NavDropdown.Item href="admin/orderlist">Orders</NavDropdown.Item>
+    </NavDropdown>
+     )}
 
 
                     </Nav>

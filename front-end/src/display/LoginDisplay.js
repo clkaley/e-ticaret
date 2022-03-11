@@ -7,7 +7,7 @@ import Loader from '../component/Loader.js'
 import FormContainer from '../component/FormContainer.js'
 import {login} from '../action/userAction.js'
 import { useLocation } from 'react-router-dom';
-
+import { useNavigate } from 'react-router';
 const LoginDisplay = ({history}) => {
      //  const redirect=location.search ? location.search.split('=')[1] : '/'
      //const redirect = location.search ? Number(location.search.split('=')[1]) : '/'
@@ -26,11 +26,14 @@ const LoginDisplay = ({history}) => {
     const redirectInUrl = new URLSearchParams(search).get('redirect'); 
     const redirect = redirectInUrl ? redirectInUrl : '/'
     
-    
+    const navigate = useNavigate();
+
+    //vs6 da navigate fonk kullanılır.
     //push okunmadığı için hata veriyor
    useEffect(()=>{
         if(userInfo){
           //history.push(redirect)
+          navigate(redirect)
         }
     },[history,userInfo,redirect])
 

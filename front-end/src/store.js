@@ -3,7 +3,7 @@ import thunk from 'redux-thunk'
 import {composeWithDevTools} from 'redux-devtools-extension'
 import {productListReducer,productDetailsReducer} from './reducers/productReducers'
 import {cardReducer} from './reducers/cardReducers'
-import {userLoginReducer,userRegisterReducer,userDetailsReducer,userUpdateProfileReducer} from './reducers/userReducers'
+import {userLoginReducer,userRegisterReducer,userDetailsReducer,userUpdateProfileReducer,userListReducer} from './reducers/userReducers'
 import {orderCreateReducer,orderDetailsReducer,orderPayReducer,orderListReducer} from './reducers/orderReducers'
 
 
@@ -17,11 +17,11 @@ const reducer = combineReducers({
     userRegister:userRegisterReducer,
     userDetails:userDetailsReducer,
     userUpdateProfile:userUpdateProfileReducer,
+    userList:userListReducer,
     orderCreate:orderCreateReducer,
     orderDetails:orderDetailsReducer,
     orderPay:orderPayReducer,
-    orderList:orderListReducer,
-    
+    orderList:orderListReducer,  
 })
 
 
@@ -34,8 +34,8 @@ JSON.parse(localStorage.getItem("cardItems")): []
 //kullanıcı bilgilerini local e kaydetme
 const userInfoFromStorage=
 localStorage.getItem("userInfo") ?
-JSON.parse(localStorage.getItem("userInfo")) : []
-
+JSON.parse(localStorage.getItem("userInfo")) : null
+// [] değiştik null yaptık
 
 //adres bilgileri için
 const shippingAddresFromStorage=

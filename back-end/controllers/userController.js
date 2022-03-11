@@ -87,6 +87,20 @@ const getUserProfile=asyncHandler (async(req,res)=>{
 
 
 /*
+    @desc GET all users
+    @route GET/api/users
+    @access Gizleme (private)/ admin
+*/ 
+
+const getUsers=asyncHandler (async(req,res)=>{
+    //res.send('Success :)')
+    const users= await User.find({})
+    res.json(users)
+  
+})
+
+
+/*
     @desc UPDATE user Profile
     @route GET/api/users/profile
     @access Gizleme (private)
@@ -120,5 +134,6 @@ const updateUserProfile=asyncHandler (async(req,res)=>{
 
 
 export{
-    authUsers,getUserProfile,registerUser,updateUserProfile
+    authUsers,getUserProfile,registerUser,updateUserProfile,
+    getUsers
 }

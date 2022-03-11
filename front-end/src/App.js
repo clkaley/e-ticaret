@@ -13,6 +13,7 @@ import ShippingDisplay from './display/ShippingDisplay'
 import PaymentDisplay from './display/PaymentDisplay'
 import PlaceOrderDisplay from './display/PlaceOrderDisplay'
 import OrderDisplay from './display/OrderDisplay'
+import UserListDisplay from './display/UserListDisplay'
 
 const  App = ()=> {
   return (
@@ -32,6 +33,7 @@ const  App = ()=> {
                   < Route path='/' element={<MainDisplay/>} exact />  
                   < Route path='/product/:id' element={<ProductDisplay/>}  /> 
                   < Route path='/shopping-cart/:id' element={<ShoppingCardDisplay/>}  /> 
+                  < Route path='admin/userList' element={<UserListDisplay/>}  />
                   < Route path='/shopping-cart/' element={<ShoppingCardDisplay/>}  /> 
                 
                   </Routes>
