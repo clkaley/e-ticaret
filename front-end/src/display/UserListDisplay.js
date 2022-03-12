@@ -46,7 +46,7 @@ const UserListDisplay = ({history}) => {
     <>
         <p className='my-4 text-muted  text-center' style={{fontSize:'25px' ,fontWeight:'bold'}}>USERS</p>
         {loading ? <Loader /> : error ? <Message variant='danger'>{error}</Message>: (
-            <Table striped bordered hover responsive className='table-sm'>
+            <Table bordered  hover responsive className='table-sm'>
                 <thead>
                     <tr>
                         <th>ID</th>
@@ -62,16 +62,16 @@ const UserListDisplay = ({history}) => {
                         <td>{user._id}</td>
                         <td>{user.name}</td>
                         <td><a href={`mailto:${user.email}`}>{user.email}</a></td>
-                        <td>{user.isAdmin ? (<i className='fas fa-check' style={{color:'green'}}></i>): (
-                            <i className='fas fa-times' style={{color:'red'}}></i>
+                        <td>{user.isAdmin ? (<p className='text-center'><i className='fas fa-check ' style={{color:'green'}}></i></p>): (
+                            <p className='text-center'><i className='fas fa-times' style={{color:'red'}}></i></p>
                         )}</td>
                         <td>
                             {/* burda editleme için kullanıcının admin olduğunu onaylıyoruz. */}
                             <Link to={`/admin/user/${user._id}/edit`}>
-                                <Button variant='light' className='btn-sm'>
+                           <Button variant='light' className='btn-sm'>
                                     <i className='fas fa-edit'>
                                     </i>
-                                 </Button>   
+                                 </Button>  
                             </Link>
                                 <Button variant='danger' className='btn-sm' onClick={()=>deleteHandler(user._id)}>
                                     <i className='fas fa-trash'>

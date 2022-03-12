@@ -43,7 +43,7 @@ const Header = ({color}) => {
 
 
     {userInfo ?  (
-        <NavDropdown className="my-2" title={userInfo.name} id='username'>
+        <NavDropdown className="my-2 mx-2" title={userInfo.name} id='username'>
              <NavDropdown.Item href="/profile">Profile</NavDropdown.Item>
              
              <NavDropdown.Item onClick={logoutHandler}>
@@ -55,7 +55,7 @@ const Header = ({color}) => {
      <Nav.Link href="/login"><i className="fas fa-child fa-2x"></i>Sign In</Nav.Link> }
 
      {userInfo && userInfo.isAdmin && (
-        <NavDropdown className="my-2" title='admin' id='admin'>
+        <NavDropdown className="my-2 " title='admin' id='admin'>
              <NavDropdown.Item href="admin/userlist">Users</NavDropdown.Item>
 
              <NavDropdown.Item href="admin/productlist">Products</NavDropdown.Item>
