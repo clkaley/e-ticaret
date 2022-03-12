@@ -32,7 +32,7 @@ const UserListDisplay = ({history}) => {
            // history.push('/login')
            navigate('/login')
         }
-    },[dispatch,history,successDelete])
+    },[dispatch,history,successDelete,userInfo])
 
     const deleteHandler= ( id )=>{
         //console.log('delete');
@@ -44,7 +44,7 @@ const UserListDisplay = ({history}) => {
 
   return (
     <>
-        <h1>Users</h1>
+        <p className='my-4 text-muted  text-center' style={{fontSize:'25px' ,fontWeight:'bold'}}>USERS</p>
         {loading ? <Loader /> : error ? <Message variant='danger'>{error}</Message>: (
             <Table striped bordered hover responsive className='table-sm'>
                 <thead>
@@ -66,7 +66,8 @@ const UserListDisplay = ({history}) => {
                             <i className='fas fa-times' style={{color:'red'}}></i>
                         )}</td>
                         <td>
-                            <Link to={`/user/${user._id}/edit`}>
+                            {/* burda editleme için kullanıcının admin olduğunu onaylıyoruz. */}
+                            <Link to={`/admin/user/${user._id}/edit`}>
                                 <Button variant='light' className='btn-sm'>
                                     <i className='fas fa-edit'>
                                     </i>
