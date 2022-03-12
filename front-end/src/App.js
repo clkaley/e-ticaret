@@ -15,6 +15,7 @@ import PlaceOrderDisplay from './display/PlaceOrderDisplay'
 import OrderDisplay from './display/OrderDisplay'
 import UserListDisplay from './display/UserListDisplay'
 import UserEditDisplay from './display/UserEditDisplay'
+import ProductListDisplay from './display/ProductListDisplay'
 
 const  App = ()=> {
   return (
@@ -34,8 +35,9 @@ const  App = ()=> {
                   < Route path='/' element={<MainDisplay/>} exact />  
                   < Route path='/product/:id' element={<ProductDisplay/>}  /> 
                   < Route path='/shopping-cart/:id' element={<ShoppingCardDisplay/>}  /> 
-                  < Route path='admin/userList' element={<UserListDisplay/>}  />
-                  < Route path='admin/user/:id/edit' element={<UserEditDisplay/>}  />
+                  < Route path='/admin/userList' element={<UserListDisplay/>}  />
+                  < Route path='/admin/user/:id/edit' element={<UserEditDisplay/>}  />
+                  < Route path='/admin/productlist' element={<ProductListDisplay/>}  />
                   < Route path='/shopping-cart/' element={<ShoppingCardDisplay/>}  /> 
                 
                   </Routes>

@@ -56,11 +56,11 @@ const Header = ({color}) => {
 
      {userInfo && userInfo.isAdmin && (
         <NavDropdown className="my-2 " title='admin' id='admin'>
-             <NavDropdown.Item href="admin/userlist">Users</NavDropdown.Item>
+             <NavDropdown.Item href="/admin/userlist">Users</NavDropdown.Item>
 
-             <NavDropdown.Item href="admin/productlist">Products</NavDropdown.Item>
+             <NavDropdown.Item href="/admin/productlist">Products</NavDropdown.Item>
 
-             <NavDropdown.Item href="admin/orderlist">Orders</NavDropdown.Item>
+             <NavDropdown.Item href="/admin/orderlist">Orders</NavDropdown.Item>
     </NavDropdown>
      )}
 
