@@ -1,7 +1,9 @@
 import express from "express";
 import{ getProducts,
   getProductById,
-  deleteProduct } from '../controllers/productController.js'
+  deleteProduct, 
+  updateProduct,
+  createProduct} from '../controllers/productController.js'
 import { protect,admin } from "../middleLayer/authenticationMiddleLayer.js";
 //import Product from '../models/productModel.js'
 //import asyncHandler from "express-async-handler";
@@ -9,8 +11,8 @@ import { protect,admin } from "../middleLayer/authenticationMiddleLayer.js";
 
 const router =express.Router()
 
-router.route('/').get(getProducts)
-router.route('/:id').get(getProductById).delete(protect,admin,deleteProduct)
+router.route('/').get(getProducts).post(protect,admin,createProduct)
+router.route('/:id').get(getProductById).delete(protect,admin,deleteProduct).put(protect,admin,updateProduct)
 
 
 
