@@ -106,13 +106,14 @@ const getUsers=asyncHandler (async(req,res)=>{
     @route GET/api/users/:id
     @access Gizleme (private)/ admin
 */ 
-
+//postmanda silme işlemi ARTIK OLUYORRRR
 const deleteUser=asyncHandler (async(req,res)=>{
     //res.send('Success :)')
     const user= await User.findById(req.params.id)
 
     if(user){ 
-        await user.remove
+        //2 gündür ÇÖZÜLEMEYEN HATANIN SADECE PARANTEZ SORUNU OLUŞU :(
+        await user.remove()
         res.json({message: 'User Removed'})
 
     }else{
