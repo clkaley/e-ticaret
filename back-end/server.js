@@ -8,8 +8,7 @@ import dotenv from 'dotenv'
 import colors from 'colors'
 //database import edildi
 import connectDB from "./config/database.js"
-
-
+import morgan from 'morgan'
 import productRoute from "./route/productRoute.js"
 import userRoute from "./route/userRoute.js"
 import orderRoute from "./route/orderRoute.js"
@@ -23,6 +22,12 @@ dotenv.config()
 connectDB()
 
 const app=express()
+
+
+if(process.env.NODE_ENV==='development'){
+  app.use(morgan('dev'))
+}
+
 
 //user & authentication
 app.use(express.json())
