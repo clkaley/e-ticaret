@@ -1,13 +1,15 @@
 import React ,{useState,useEffect}from 'react'
+import axios from 'axios'
 import{Link, Navigate} from 'react-router-dom'
 import {Form,Button, FormGroup, FormLabel, FormControl, FormCheck} from 'react-bootstrap'
 import {useDispatch,useSelector} from 'react-redux'
 import Message from '../component/Message.js'
 import Loader from '../component/Loader.js'
 import FormContainer from '../component/FormContainer.js'
-import {listProductDetails} from '../action/productAction'
+import {listProductDetails,updateProduct} from '../action/productAction'
 import { useLocation, useParams} from 'react-router-dom';
 import { useNavigate } from 'react-router';
+import { PRODUCT_UPDATE_RESET } from '../constant/productConstant.js'
 
 
 const ProductEditDisplay = () => {
@@ -25,6 +27,7 @@ const ProductEditDisplay = () => {
     const [category,setCategory]=useState('')
     const [countInStock,setCountInStock]=useState(0)
     const [description,setDescription]=useState('')
+    const [uploading,setUploading]=useState(false)
 
 
     const dispatch=useDispatch();
@@ -33,30 +36,72 @@ const ProductEditDisplay = () => {
     const {loading,error,product}=productDetails
 
 
+    const productUpdate=useSelector(state => state.productUpdate)
+    const { loading:loadingUpdate,
+            error:errorUpdate,
+            success:successUpdate
+          }=productUpdate
+
     const navigate=useNavigate();
 
     //push okunmadığı için hata veriyor
    useEffect(()=>{
-     
-        if(!product.name || product._id !== productId ){
-          dispatch(listProductDetails(productId))
-        }else{
-          setName(product.name)
-          setPrice(product.price)
-          setImage(product.image)
-          setBrand(product.brand)
-          setCategory(product.category)
-          setCountInStock(product.countInStock)
-          setDescription(product.description)
-        }
-     
-    },[dispatch,productId,product])
 
-   
+        if(successUpdate){
+            dispatch({type:PRODUCT_UPDATE_RESET})
+            navigate('/admin/productlist')
+        } else{
+
+            if(!product.name || product._id !== productId ){
+                dispatch(listProductDetails(productId))
+              }else{
+                setName(product.name)
+                setPrice(product.price)
+                setImage(product.image)
+                setBrand(product.brand)
+                setCategory(product.category)
+                setCountInStock(product.countInStock)
+                setDescription(product.description)
+              }
+        }
+
+    },[dispatch,productId,product,successUpdate])
+
+   const uploadFileHandler=async(e)=>{
+       const file=e.target.files[0]
+       const formData=new FormData()
+       formData.append('image',file)
+       setUploading(true)
+       try{
+        const config ={
+            header:{
+                'Content-Type':'multipart/form-data'
+            }
+        }
+        const {data}=await axios.post('/api/upload',formData,config)
+
+        setImage(data)
+
+        setUploading(false)
+       }catch{
+        console.log(error);
+        setUploading(false)
+       }
+   }
 
     const submitHandler=(e)=>{
     e.preventDefault()
-    //güncelleme
+    //güncelleme işlemi
+        dispatch(updateProduct({
+            _id:productId,
+            name,
+            price,
+            image,
+            brand,
+            category,
+            countInStock,
+            description
+        }))
 
 }
   return (
@@ -68,8 +113,9 @@ const ProductEditDisplay = () => {
       
         <FormContainer>
         <h2 className="text-center my-3 text-muted">Edit Product</h2>
-        {/* {loadingUpdate && <Loader />}
-        {errorUpdate && <Message variant='danger'>{errorUpdate}</Message>} */}
+
+        {loadingUpdate && <Loader />}
+        {errorUpdate && <Message variant='danger'>{errorUpdate}</Message>} 
         {loading ? <Loader />: error ? <Message variant='danger'>{error}</Message> : (
              <Form onSubmit={submitHandler}>
              <FormGroup className='my-3' controlId='name'>
@@ -85,6 +131,10 @@ const ProductEditDisplay = () => {
                  <FormGroup controlId='image'>
                      <FormLabel>İmage </FormLabel>
                      <FormControl type='text' placeholder='Enter  Image URL' value={image || ''} onChange={(e)=>setImage(e.target.value)}></FormControl>
+                     <FormControl 
+                     type='file'
+                     label='Choose File'
+                     onChange={uploadFileHandler}></FormControl>{uploading && <Loader/>}
                  </FormGroup>
                  
                  <FormGroup controlId='brand'>

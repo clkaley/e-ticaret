@@ -76,12 +76,12 @@ const ProductListDisplay = ({history}) => {
     <>
     <Row className='align-items-center'>
         <Col>
-            <p className='my-4 text-muted  text-center' style={{fontSize:'25px' ,fontWeight:'bold'}}>PRODUCTS</p>
+            <p className='my-2 text-muted  text-center' style={{fontSize:'25px' ,fontWeight:'bold'}}>PRODUCTS</p>
         </Col>
     <Row>
         <Col className='text-end'>
             <Button 
-            className='my-3 btn btn-danger'
+            className='my-4 btn btn-danger'
             onClick={createProductHandler}>
               Create Product 
               {/* <i className='fas fa-plus'></i>  */}
