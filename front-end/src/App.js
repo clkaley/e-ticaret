@@ -17,6 +17,7 @@ import UserListDisplay from './display/UserListDisplay'
 import UserEditDisplay from './display/UserEditDisplay'
 import ProductListDisplay from './display/ProductListDisplay'
 import ProductEditDisplay, {} from './display/ProductEditDisplay'
+import OrderListDisplay from './display/OrderListDisplay'
 
 const  App = ()=> {
   return (
@@ -40,6 +41,7 @@ const  App = ()=> {
                   < Route path='/admin/user/:id/edit' element={<UserEditDisplay/>}  />
                   < Route path='/admin/productlist' element={<ProductListDisplay/>}  />
                   < Route path='/admin/product/:id/edit' element={<ProductEditDisplay/>}  />
+                  < Route path='/admin/orderlist' element={<OrderListDisplay/>}  />
                   < Route path='/shopping-cart/' element={<ShoppingCardDisplay/>}  /> 
                 
                   </Routes>

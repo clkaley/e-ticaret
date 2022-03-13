@@ -20,3 +20,11 @@ export const ORDER_LIST_REQUEST='ORDER_LIST_REQUEST'
 export const ORDER_LIST_SUCCESS='ORDER_LIST_SUCCESS'
 export const ORDER_LIST_FAIL='ORDER_LIST_FAIL'
 export const ORDER_LIST_RESET='ORDER_LIST_RESET'
+
+
+
+//order_list admin tarafında görülenler.
+export const ORDER_LIST_A_REQUEST='ORDER_LIST_A_REQUEST'
+export const ORDER_LIST_A_SUCCESS='ORDER_LIST_A_SUCCESS'
+export const ORDER_LIST_A_FAIL='ORDER_LIST_A_FAIL'
+
