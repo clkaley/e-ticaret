@@ -129,7 +129,7 @@ const ProductEditDisplay = () => {
                  </FormGroup>
      
                  <FormGroup controlId='image'>
-                     <FormLabel>İmage </FormLabel>
+                     <FormLabel>Image </FormLabel>
                      <FormControl type='text' placeholder='Enter  Image URL' value={image || ''} onChange={(e)=>setImage(e.target.value)}></FormControl>
                      <FormControl 
                      type='file'

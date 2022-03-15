@@ -15,7 +15,7 @@ const orderSchema=mongoose.Schema({
             },
             //quantity
             qty:{
-                type:String,
+                type:Number,
                 required:true
             },
             image:{

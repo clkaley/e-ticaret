@@ -18,7 +18,7 @@ const Product = ({product}) => {
                     </Card.Title>
               
                     <Card.Text as='div' className='py-2'>      
-                        <Rating className='py-2' value={product.rating } text={`  ${product.total_comments}  comments`} />
+                        <Rating className='py-2' value={product.rating } text={`  ${product.numReviews}  comments`} />
                     </Card.Text>
 
                     <Card.Text as='h3'>

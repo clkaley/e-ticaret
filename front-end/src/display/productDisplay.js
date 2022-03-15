@@ -3,28 +3,53 @@ import React, {useState,useEffect} from 'react'
 //import React, {useEffect} from 'react'
 //import axios from 'axios'
 import {useDispatch,useSelector} from 'react-redux';
-import { listProductDetails } from '../action/productAction';
+import { listProductDetails,createProductReview } from '../action/productAction';
 import Loader from '../component/Loader';
 import Message from '../component/Message'
-
+import {PRODUCT_CREATE_REVIEW_RESET} from '../constant/productConstant'
 import { Link } from 'react-router-dom'
-import { Row, Col, Image, ListGroup, Card, Button, ListGroupItem, Form } from 'react-bootstrap'
+import { Row, Col, Image, ListGroup, Card, Button, ListGroupItem, Form, FormGroup, FormLabel, FormControl } from 'react-bootstrap'
 import Rating from '../component/Rating'
 import { useParams } from 'react-router-dom';
 //import products from '../products'
 import { useNavigate } from 'react-router';
  //shopping-cart
 function ProductDisplay({match}) {
+
   //qty,setqty
  const [qty,setqty]=useState(1);
+ const [rating,setRating]=useState(0);
+ const [comment,setComment]=useState('');
+
 
   const dispatch=useDispatch()
+
   const productDetails=useSelector(state=>state.productDetails);
   const {loading,error,product}=productDetails
+
+  const userLogin=useSelector(state=>state.userLogin);
+  const {userInfo}=userLogin
+
+  const productReviewCreate=useSelector(state=>state.productReviewCreate);
+  const {
+          success:successProductReview,
+          error:errorProductReview
+        }=productReviewCreate
+
+  
+
   const { id } = useParams();
+
   useEffect(()=>{
-          dispatch(listProductDetails(id))
-        },[dispatch,match]);
+
+    if(successProductReview){
+      alert('Review Submitted')
+      setRating(0)
+      setComment('')
+      dispatch({type:PRODUCT_CREATE_REVIEW_RESET})
+    }
+        dispatch(listProductDetails(id))
+        },[dispatch,match,successProductReview]);
 
 
   const navigate = useNavigate();
@@ -34,6 +59,15 @@ function ProductDisplay({match}) {
     navigate(`/shopping-cart/${id}?qty=${qty}`)
 
     };
+
+
+
+    const submitHandler=(e)=>{
+      e.preventDefault()
+      dispatch(createProductReview(id,{
+        rating,comment
+      }))
+    }
 
  //const match = useParams()
   //const product = products.find((p) => p._id === match.id);
@@ -58,14 +92,16 @@ function ProductDisplay({match}) {
         <Col className='my-5 mx-auto'>
       
        </Col>
-       {loading ? <Loader /> :error ? <Message variant="danger">{error}</Message> : (<Row className='mr-2 ms-auto justify-content-md-center '>
+       {loading ? <Loader /> :error ? <Message variant="danger">{error}</Message> : (
+       <>
+       <Row className='mr-2 ms-auto justify-content-md-center '>
             <Col  md={5} >
               <Image  src={product.image} alt={product.name} fluid />
             </Col>
          
          <Col sm={1}>
          </Col>
-            <Col md={4}  className=' mx-5'>
+            <Col md={4}  className=' mx-5 py-5'>
               <ListGroup variant="flush">
                   <ListGroupItem className='text-center'>
                     <h2>{product.name}</h2>
@@ -73,7 +109,7 @@ function ProductDisplay({match}) {
               </ListGroup>
 
               <ListGroupItem  >
-                <Rating   value={product.rating} text={`${product.total_comments} comments`} />
+                <Rating   value={product.rating} text={`${product.numReviews} comments`} />
               </ListGroupItem>
            
 
@@ -150,12 +186,79 @@ function ProductDisplay({match}) {
               
             
         </Row>
-        
-         )}
+        <div className='align-items-center'>
+          <Row className='text-center
+          '>
+            <Col md={6}>
+            
+            </Col>
+          <Col md={6} className='my-4'>
+            <h4>Reviews</h4>
+            {product.reviews.length === 0 && <Message>No Reviews</Message>}
+            <ListGroup variant='flush'>
+              {product.reviews.map(review=>(
+                <ListGroupItem key={review._id}>
+                  <strong>{review.name}</strong>
+                  <Rating value={review.rating}/>
+                  <p>{review.createdAt.substring(0,10)}</p>
+                  <p>{review.comment}</p>
+                </ListGroupItem>
+              ))}
+              <ListGroupItem>
+                <p style={{fontWeight:'bold'}}>Write a Photographer Review</p>
+                {errorProductReview && <Message variant='danger'>{errorProductReview}</Message>}
+                {userInfo ? (
+                  <Form onSubmit={submitHandler}>
+                    <FormGroup controlId='rating'>
+                      <FormLabel className='my-2'>Rating</FormLabel>
+                      <FormControl 
+                      as='select' 
+                      value={rating}
+                      onChange={(e)=>setRating(e.target.value)}
+                       >
+                      <option value=''>Choose</option>
+                      <option value='1'>1-Poor</option>
+                      <option value='2'>2-Fair</option>
+                      <option value='3'>3-Good</option>
+                      <option value='4'>4-Very Good</option>
+                      <option value='5'>5-Excellent</option>
 
+                       </FormControl>
+                    </FormGroup>
+
+                    <FormGroup  controlId='comment'>
+                      <FormLabel className='my-2'>
+                        Comment
+                      </FormLabel>
+                      <FormControl 
+                        as='textarea'
+                        row='3'
+                        value={comment}
+                        onChange={(e)=>setComment(e.target.value)} >
+                        
+                      </FormControl>
+                    </FormGroup>
+
+
+                    <Button 
+                      type="submit"
+                      variant='primary'
+                      className='btn btn-light btn-outline-danger btn-sm ms-auto my-3'>Submit
+                    </Button>
+                  </Form>
+                ) : <Message>Please <Link to='/login'>Sıgn In</Link> to write a review {''}</Message>}
+              </ListGroupItem>
+            </ListGroup>
+          </Col>
+        </Row>
+        </div>
+        </>
+         )}
+      
 
         
     </div>
+  
 }
  
 export default ProductDisplay

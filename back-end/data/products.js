@@ -10,7 +10,7 @@ const products = [
     price: $ 80,
     countInStock: 10,
     rating: 4.5,
-    total_comments: 12,
+    numReviews: 12,
     */ 
     {
        // _id:'1',
@@ -19,9 +19,9 @@ const products = [
         description:'The high-performance flash automatically calculates surrounding brightness and adjusts shutter speed accordingly no need for any special settings.',
         brand:'FujiFilm',
         category:'Electronics',
-        stock:15,
+        countInStock:15,
         price:'60',
-        total_comments:2,
+        numReviews:2,
         rating:5,
         
     },
@@ -34,9 +34,9 @@ const products = [
         brand:'FujiFilm',
         category:'Electronics',
         price:'80',
-        total_comments:1,
+        numReviews:1,
         rating: 4,
-        stock:25,
+        countInStock:25,
     },
 
     {
@@ -47,9 +47,9 @@ const products = [
         brand:'FujiFilm',
         category:'Electronics',
         price:'95',
-        total_comments:5,
+        numReviews:5,
         rating: 2.5,
-        stock:0,
+        countInStock:0,
     },
 
     {
@@ -60,9 +60,9 @@ const products = [
         brand:'FujiFilm',
         category:'Electronics',
         price:'120',
-        total_comments:12,
+        numReviews:12,
         rating: 3.5,
-        stock:65,
+        countInStock:65,
     },
 
     {
@@ -73,9 +73,9 @@ const products = [
         brand:'FujiFilm',
         category:'Electronics',
         price:'180',
-        total_comments:36,
+        numReviews:36,
         rating: 5,
-        stock:95,
+        countInStock:95,
     },
     {
       //  _id:'6',
@@ -85,9 +85,9 @@ const products = [
         brand:'FujiFilm',
         category:'Electronics',
         price:'320',
-        total_comments:29,
+        numReviews:29,
         rating: 1.5,
-        stock:120,
+        countInStock:120,
     },
     {
      //   _id:'7',
@@ -97,9 +97,9 @@ const products = [
         brand:'FujiFilm',
         category:'Electronics',
         price:'290',
-        total_comments:12,
+        numReviews:12,
         rating: 3.5,
-        stock:65,
+        countInStock:65,
     },
     {
      //   _id:'8',
@@ -109,9 +109,9 @@ const products = [
         brand:'FujiFilm',
         category:'Electronics',
         price:'220',
-        total_comments:20,
+        numReviews:20,
         rating: 5,
-        stock:25,
+        countInStock:25,
     },
     {
      //   _id:'9',
@@ -121,9 +121,9 @@ const products = [
         brand:'Kodak',
         category:'Electronics',
         price:'52',
-        total_comments:29,
+        numReviews:29,
         rating: 4.5,
-        stock:85,
+        countInStock:85,
     },
     {
       //  _id:'10',
@@ -133,9 +133,9 @@ const products = [
         brand:'Kodak',
         category:'Electronics',
         price:'92',
-        total_comments:27,
+        numReviews:27,
         rating: 4.5,
-        stock:65,
+        countInStock:65,
     },
     {
       //  _id:'11',
@@ -145,9 +145,9 @@ const products = [
         brand:'FujiFilm',
         category:'Electronics',
         price:'85',
-        total_comments:52,
+        numReviews:52,
         rating: 3.5,
-        stock:15,
+        countInStock:15,
     },
     {
       //  _id:'12',
@@ -157,9 +157,9 @@ const products = [
         brand:'FujiFilm',
         category:'Electronics',
         price:'120',
-        total_comments:35,
+        numReviews:35,
         rating: 5,
-        stock:25,
+        countInStock:25,
     },
     
 

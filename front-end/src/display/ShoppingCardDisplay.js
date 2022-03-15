@@ -104,7 +104,7 @@ const navigate=useNavigate();
                     <Link to={`/product/${item.product}`}>{item.name}</Link>
                   </Col>
                   <Col md={2}>
-                    {item.price}
+                   {item.price}
                   </Col>
                   <Col md={2}>
                   <Form.Control as="select" value={item.qty} onChange={(e) => dispatch(addToCard(item.product, Number(e.target.value)))}>
@@ -132,9 +132,9 @@ const navigate=useNavigate();
               <Card>
                 <ListGroup variant='flush' className='text-center'>
                   <ListGroupItem>
-                    <h3>Total {cardItems.reduce((acc, item) => acc + item.qty,0)} Items 
+                    <h3>Total {cardItems.reduce((acc, item) => acc + (item.qty),0)} Items 
                     </h3>
-                    {/* <h3> {cardItems.reduce((acc, item)=> acc + item.price * item.qty, 0)} </h3> */}
+                    <h3> {cardItems.reduce((acc, item)=> acc + Number(item.price) * (item.qty), 0)} </h3>
                   </ListGroupItem>
                   <ListGroupItem className='text-center'>
                     <Button 
