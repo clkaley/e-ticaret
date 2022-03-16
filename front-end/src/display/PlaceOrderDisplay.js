@@ -48,6 +48,7 @@ const PlaceOrderDisplay = () => {
     //tetiklemeyi başlatma
     const PlaceOrderHandler=()=>{
         console.log('order');
+        
         dispatch(createOrder({
             orderItems:card.cardItems,
             shippingAddress:card.shippingAddress,

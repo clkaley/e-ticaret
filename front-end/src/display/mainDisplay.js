@@ -16,6 +16,7 @@ import Product from '../component/Product'
 //redux için message ve loader component ı eklendi
 import Message from '../component/Message'
 import Loader from '../component/Loader'
+import ProductCarousel from '../component/ProductCarousel'
 
 
 
@@ -46,9 +47,14 @@ const MainDisplay = () => {
 
     //const products=[]
 
+    //search için
+
+ 
+
     return (
+
         <Container>
-            
+            <ProductCarousel/>
             {loading ? ( <Loader/> )
              : error ? 
             (<Message variant='danger'>{error}</Message>) : ( <Row>

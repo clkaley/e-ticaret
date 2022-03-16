@@ -35,6 +35,7 @@ const  App = ()=> {
                   < Route path='/profile' element={<ProfileDisplay/>}  />  
                   < Route path='/product/:id' element={<ProductDisplay/>}  /> 
                   < Route path='/' element={<MainDisplay/>} exact />  
+                  < Route path='/search/:keyword' element={<MainDisplay/>} exact />  
                   < Route path='/product/:id' element={<ProductDisplay/>}  /> 
                   < Route path='/shopping-cart/:id' element={<ShoppingCardDisplay/>}  /> 
                   < Route path='/admin/userList' element={<UserListDisplay/>}  />
