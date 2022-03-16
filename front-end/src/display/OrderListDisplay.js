@@ -11,8 +11,8 @@ const OrderListDisplay = ({history}) => {
 
     const dispatch =useDispatch()
 
-    const orderList=useSelector(state=>state.orderList)
-    const {loading,error,orders}=orderList
+    const orderListAdmin=useSelector(state=>state.orderListAdmin)
+    const {loading,error,orders}=orderListAdmin
 
 
     const userLogin=useSelector(state=>state.userLogin)
@@ -23,7 +23,6 @@ const OrderListDisplay = ({history}) => {
 
     useEffect(()=>{
         if(userInfo && userInfo.isAdmin){
-           
             dispatch(listOrders())
         }
         else{
@@ -51,35 +50,37 @@ const OrderListDisplay = ({history}) => {
                     </tr>
                 </thead>
                 <tbody>
-                    {orders.map(order=>(
-                        <tr key={order._id}>
-                        <td>{order._id}</td>
-                        <td>{order.user && order.user.name}</td>
-                        <td>{order.createdAt.substring(0,10)}</td>
-                        <td>${order.totalPrice}</td>
-                        <td>{order.isPaid ? ( order.paidAt.substring(0,10)): (
-                           <i className='fas fa-times' style={{color:'red'}}></i>
-                        )}</td>
-
-                         <td>{order.isDelivered ? (<p className='text-center'> order.deliveredAt.substring(0,10)</p>): (
-                            <p className='text-center'><i className='fas fa-times' style={{color:'red'}}></i></p>
-                        )}</td>
-
-                        <td>
-                            {/* burda editleme için kullanıcının admin olduğunu onaylıyoruz. */}
-                            <Link to={`/order/${order._id}/`}>
-                           <Button variant='light' className='btn-sm'>
-                                   Details
-                                 </Button>  
-                            </Link>
-                           
-                        </td>
-                        </tr>
-                    ))}
-                </tbody>
-            </Table>
-        )}
-
+            {orders.map((order) => (
+              <tr key={order._id}>
+                <td>{order._id}</td>
+                <td>{order.user && order.user.name}</td>
+                <td>{order.createdAt.substring(0, 10)}</td>
+                <td>${order.totalPrice}</td>
+                <td>
+                  {order.isPaid ? (
+                    order.paidAt.substring(0, 10)
+                  ) : (
+                    <i className='fas fa-times' style={{ color: 'red' }}></i>
+                  )}
+                </td>
+                <td>
+                  {order.isDelivered ? (
+                    order.deliveredAt.substring(0, 10)
+                  ) : (
+                    <i className='fas fa-times' style={{ color: 'red' }}></i>
+                  )}
+                </td>
+                <td>
+                     <Link to={`/order/${order._id}`} >
+                                      <Button className='btn-sm' variant='light'>Details</Button>
+                                      
+                                      </Link> 
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </Table>
+      )}
     </>
   )
 }

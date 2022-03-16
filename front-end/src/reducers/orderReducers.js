@@ -10,7 +10,7 @@ import {ORDER_CREATE_FAIL,
         ORDER_PAY_SUCCESS,
         ORDER_LIST_FAIL,
         ORDER_LIST_REQUEST,
-        ORDER_LIST_SUCCESS,ORDER_LIST_RESET, ORDER_LIST_A_REQUEST, ORDER_LIST_A_SUCCESS,  ORDER_LIST_A_FAIL} from '../constant/orderConstant'
+        ORDER_LIST_SUCCESS,ORDER_LIST_RESET, ORDER_LIST_ADMIN_REQUEST, ORDER_LIST_ADMIN_SUCCESS,  ORDER_LIST_ADMIN_FAIL} from '../constant/orderConstant'
 
 
 export const orderCreateReducer=(state={},action)=>{
@@ -136,21 +136,21 @@ export const orderListReducer=(state={ orders:[]},action)=>{
 }
 
 
-export const orderListAReducer=(state={ orders:[]},action)=>{
+export const orderListAdminReducer=(state={ orders:[]},action)=>{
     switch(action.type){
 
-        case ORDER_LIST_A_REQUEST :
+        case ORDER_LIST_ADMIN_REQUEST :
         return {
             loading:true
         }
         
-        case ORDER_LIST_A_SUCCESS :
+        case ORDER_LIST_ADMIN_SUCCESS :
         return {
             loading:false,
             orders:action.payload,
         }
         
-        case ORDER_LIST_A_FAIL :
+        case ORDER_LIST_ADMIN_FAIL :
         return {
             loading:false,
             error:action.payload

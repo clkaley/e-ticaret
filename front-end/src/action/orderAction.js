@@ -12,9 +12,9 @@ import {
     ORDER_LIST_FAIL,
     ORDER_LIST_REQUEST,
     ORDER_LIST_SUCCESS,
-    ORDER_LIST_A_REQUEST,
-    ORDER_LIST_A_SUCCESS,
-    ORDER_LIST_A_FAIL} from '../constant/orderConstant'
+    ORDER_LIST_ADMIN_REQUEST,
+    ORDER_LIST_ADMIN_SUCCESS,
+    ORDER_LIST_ADMIN_FAIL} from '../constant/orderConstant'
 import axios from "axios"
 
 
@@ -164,8 +164,9 @@ import axios from "axios"
         try {
     
             dispatch({
-                type:ORDER_LIST_A_REQUEST,
+                type:ORDER_LIST_ADMIN_REQUEST,
             })
+            
             const {userLogin:{userInfo}}=getState()
     
            
@@ -182,13 +183,13 @@ import axios from "axios"
               )
     
             dispatch({
-                type:ORDER_LIST_A_SUCCESS,
+                type:ORDER_LIST_ADMIN_SUCCESS,
                 payload: data,
             })
     
         } catch (error) {
             dispatch({
-                type:ORDER_LIST_A_FAIL,
+                type:ORDER_LIST_ADMIN_FAIL,
                 payload:
                 error.response && error.response.data.message ? error.response.data.message : error.message
             })

@@ -109,7 +109,7 @@ const updateOrderToPaid=asyncHandler (async(req,res)=>{
 
 
 /*
-    @desc Get allorders
+    @desc Get all orders
     @route GET/api/orders 
     @access Private erişimi gizleme
 */ 
