@@ -126,7 +126,7 @@ function ProductDisplay({match}) {
                       <Col>
                        Price: 
                       
-                        <strong>   {product.price}</strong>
+                        <strong>   ${product.price}</strong>
                         </Col>
                       </Row>
                     </ListGroupItem>
