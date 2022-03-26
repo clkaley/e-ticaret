@@ -17,6 +17,7 @@ import { useNavigate } from 'react-router';
 function ProductDisplay({match}) {
 
   //qty,setqty
+
  const [qty,setqty]=useState(1);
  const [rating,setRating]=useState(0);
  const [comment,setComment]=useState('');

@@ -104,7 +104,7 @@ const navigate=useNavigate();
                     <Link to={`/product/${item.product}`}>{item.name}</Link>
                   </Col>
                   <Col md={2}>
-                   {item.price}
+                   ${item.price}
                   </Col>
                   <Col md={2}>
                   <Form.Control as="select" value={item.qty} onChange={(e) => dispatch(addToCard(item.product, Number(e.target.value)))}>
