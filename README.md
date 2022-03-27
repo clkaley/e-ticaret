@@ -1,4 +1,4 @@
-# e-ticaret Pretium
+# Pretium
 
 ```
 React, Redux, Node, Express & MongoDB kullanılarak Pretium E-ticaret Sitesi yapıldı
