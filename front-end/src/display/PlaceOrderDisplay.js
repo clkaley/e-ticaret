@@ -8,6 +8,7 @@ import{Link} from 'react-router-dom'
 import { createOrder } from '../action/orderAction';
 
 
+
 const PlaceOrderDisplay = () => {
     const dispatch=useDispatch()
     //cart
@@ -40,6 +41,7 @@ const PlaceOrderDisplay = () => {
     useEffect(()=>{
         if(success){
             navigate(`/order/${order._id}`)
+      
         }
     },[success])
 
@@ -78,10 +80,10 @@ const PlaceOrderDisplay = () => {
                                  <strong>
                                     Address:
                                 </strong>  
-                                {card.shippingAddress.address}, 
-                                {card.shippingAddress.city}, 
-                                {card.shippingAddress.postCode},
-                                {card.shippingAddress.country}
+                                {card.shippingAddress.address || ''}, 
+                                {card.shippingAddress.city || ''}, 
+                                {card.shippingAddress.postCode || ''},
+                                {card.shippingAddress.country || ''}
                             </p>
                         </ListGroupItem>
                 <ListGroupItem className='my-3'>
