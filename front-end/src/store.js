@@ -47,8 +47,10 @@ JSON.parse(localStorage.getItem("userInfo")) : null
 
 //adres bilgileri için
 const shippingAddresFromStorage=
-localStorage.getItem("shippingAddress") ?
-JSON.parse(localStorage.getItem("shippingAddress")) :{};
+localStorage.getItem('shippingAddress') ?
+JSON.parse(localStorage.getItem('shippingAddress')) 
+:
+{};
 
 
 const paymentMethodFromStorage = localStorage.getItem('paymentMethod')

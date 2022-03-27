@@ -1,5 +1,6 @@
 import React ,{useState,useEffect}from 'react'
 import{Link} from 'react-router-dom'
+import { useNavigate } from 'react-router';
 import {Form,Button,Row,Col, FormGroup, FormLabel, FormControl} from 'react-bootstrap'
 import {useDispatch,useSelector} from 'react-redux'
 import Message from '../component/Message.js'
@@ -29,10 +30,12 @@ const RegisterDisplay = ({history}) => {
     const redirectInUrl = new URLSearchParams(search).get('redirect'); 
     const redirect = redirectInUrl ? redirectInUrl : '/'
     
+    const navigate=useNavigate();
     //push okunmadığı için hata veriyor
    useEffect(()=>{
         if(userRegister){
           //history.push(redirect)
+         // navigate(redirect)
         }
     },[history,userRegister,redirect])
 

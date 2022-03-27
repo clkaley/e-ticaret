@@ -38,11 +38,13 @@ const PlaceOrderDisplay = () => {
 
     //sıkıntılı kısım
     const navigate=useNavigate();
+
     useEffect(()=>{
         if(success){
             navigate(`/order/${order._id}`)
       
         }
+        
     },[success])
 
 
@@ -80,10 +82,10 @@ const PlaceOrderDisplay = () => {
                                  <strong>
                                     Address:
                                 </strong>  
-                                {card.shippingAddress.address || ''}, 
-                                {card.shippingAddress.city || ''}, 
-                                {card.shippingAddress.postCode || ''},
-                                {card.shippingAddress.country || ''}
+                                {card.shippingAddress.address }, 
+                                {card.shippingAddress.city }, 
+                                {card.shippingAddress.postCode },
+                                {card.shippingAddress.country }
                             </p>
                         </ListGroupItem>
                 <ListGroupItem className='my-3'>
