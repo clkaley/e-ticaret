@@ -8,9 +8,12 @@ import {getUserDetails,updateUserProfile} from '../action/userAction.js'
 //action js den çekildi
 import {listMyOrders} from '../action/orderAction'
 //import { useLocation } from 'react-router-dom';
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import {USER_UPDATE_PROFILE_RESET} from '../constant/userConstant'
 
 const ProfileDisplay = ({history}) => {
+
+    const navigate = useNavigate();
      //  const redirect=location.search ? location.search.split('=')[1] : '/'
      //const redirect = location.search ? Number(location.search.split('=')[1]) : '/'
      //const location = useLocation();
@@ -47,11 +50,13 @@ const ProfileDisplay = ({history}) => {
    useEffect(()=>{
         if(!userInfo){
          // history.push('/login')
+         navigate('/login')
         }
         else{
-            if(!user.name ){
+            if(!user.name || !user  ){
                 dispatch(getUserDetails('profile'))
                 dispatch(listMyOrders())
+               // dispatch({type:USER_UPDATE_PROFILE_RESET})
             }else{
                 //console.log(user.name)
                 setName(user.name)
