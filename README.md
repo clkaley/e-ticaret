@@ -5,5 +5,5 @@ React, Redux, Node, Express & MongoDB kullanılarak Pretium E-ticaret Sitesi yap
 
 ```
 <p align="center">
-  <img src="maindisplay.png" alt="Ana Ekran"/>
+  <img src="analog.jpg" alt="Ana Ekran"/>
 </p>
