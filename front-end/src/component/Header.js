@@ -5,9 +5,9 @@ import { Navbar,Nav, Container, NavDropdown, } from 'react-bootstrap'
 import { logout } from '../action/userAction'
 import { Link } from 'react-router-dom'
 import SearchBox from './SearchBox'
-import {Route} from 'react'
-
-const Header = ({color}) => {
+//import {Route} from 'react-router-dom'
+import { Routes, Route} from 'react-router-dom'
+const Header = ({color},history) => {
 
 
     const dispatch=useDispatch();
@@ -37,8 +37,15 @@ const Header = ({color}) => {
                             </Nav.Link>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
-                         <SearchBox/>  
-                        {/* <Route render={({history})=> <SearchBox history={history}/> }/> */}
+                         {/* <SearchBox/>  
+                         <Routes render={({history})=> <SearchBox history={history}/>}
+                         /> */}
+                         <SearchBox history={history} />
+                         {/* <Routes>
+                         <Route render={({ history }) => <SearchBox history={history} />} />
+                         </Routes> */}
+                        
+                      
                     <Nav className="ms-auto">
                         
                         <Nav.Link href="/shopping-cart"><i className='fas fa-shopping-cart fa-2x'></i>Shopping Card</Nav.Link>

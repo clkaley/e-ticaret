@@ -14,11 +14,16 @@ const SearchBox = () => {
        
     }*/
     const [keyword ,setKeyword]=useState('')
+    
     const navigate = useNavigate();
+
+// navigate(`/search/keyword/${keyword}`)
+
     const submitHandler=(e)=>{
+      //trim sağ ve soldaki boşluklardan kurtulmak için kullanılır.
       e.preventDefault()
-      if(keyword.trim){
-        navigate(`/search/keyword/${keyword}`)
+      if(keyword.trim()){
+        navigate(`/search/${keyword}`)
       }else{
         navigate('/')
       }
@@ -27,7 +32,10 @@ const SearchBox = () => {
   return (
     <>
     
-    <Form onSubmit={submitHandler} className='d-flex mx-auto ' >
+    <Form 
+      onSubmit={submitHandler} 
+      className='d-flex mx-auto ' 
+    >
 
         <FormControl 
         type='text' 
@@ -35,8 +43,8 @@ const SearchBox = () => {
         onChange={(e)=>setKeyword(e.target.value)}
         placeholder='Search'
         className='mr-sm-2 ml-sm-3 mx-3 '>
-
         </FormControl>
+
 
         <Button 
         type='submit' 

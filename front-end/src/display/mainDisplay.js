@@ -2,7 +2,7 @@
 //import axios from 'axios'
 //import React, {useState,useEffect} from 'react'
 import React,{useEffect} from 'react'
-
+import { useParams } from 'react-router-dom'
 //redux için eklendi
 import {useDispatch,useSelector} from 'react-redux'
 
@@ -21,20 +21,13 @@ import ProductCarousel from '../component/ProductCarousel'
 
 
 const MainDisplay = () => {
-     //redux
+    const {keyword} = useParams();
+    
+//search için 
+//const keyword=match.params.keyword
 
-    //const [products,setProducts] =useState([])
-   
-   /* useEffect(()=>{
-        const fetchProducts= async () => {
-            const {data}= await axios.get('/api/products')
 
-            setProducts(data)
-        }
-        fetchProducts()
-    }, [])*/
-
-    //redux için eklendi
+ 
 
     const dispatch= useDispatch()
 
@@ -42,8 +35,8 @@ const MainDisplay = () => {
     const {loading,error,products}=productList
 
     useEffect(() =>{
-        dispatch (listProduct())
-    }, [dispatch])
+        dispatch (listProduct(keyword))
+    }, [dispatch,keyword])
 
     //const products=[]
 
@@ -70,3 +63,19 @@ const MainDisplay = () => {
 }
 
 export default MainDisplay
+
+
+    //redux
+
+    //const [products,setProducts] =useState([])
+   
+   /* useEffect(()=>{
+        const fetchProducts= async () => {
+            const {data}= await axios.get('/api/products')
+
+            setProducts(data)
+        }
+        fetchProducts()
+    }, [])*/
+
+    //redux için eklendi
