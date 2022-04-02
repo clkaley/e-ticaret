@@ -5,7 +5,7 @@ React, Redux, Node, Express & MongoDB kullanılarak Pretium E-ticaret Sitesi yap
 
 ```
 
-Teknik olarak kullanılacak yazılım dilleri: React, Redux, Node, MongoDB’dir. Aşamalar şu şekildedir:
+Aşamalar şu şekildedir:
 
 ## 1. Ön Yüz Oluşturma
 React kurulumu yapılıp bootstrap kütüphanesi eklenir. Header, Footer components’ları oluşturulur ve ürünler için liste yapılır, ürünlerin değerlendirilmesi ve detay ekranı eklenir. React router projeye implemente edilir.
